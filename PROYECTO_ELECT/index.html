@@ -1,0 +1,1582 @@
+<!DOCTYPE html>
+
+<html lang="es"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><meta content="#050b15" name="theme-color"/><title>LSC Vision — Sustentación interactiva</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Space+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><style>
+:root{--bg:#050b15;--panel:#0b1727;--ink:#eaf7ff;--muted:#9eb3c5;--cyan:#5be8ff;--blue:#3979ff;--line:#22415a}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:'DM Sans',system-ui,sans-serif;overflow-x:hidden}body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:20;opacity:.13;background-image:linear-gradient(rgba(120,220,255,.09) 1px,transparent 1px),linear-gradient(90deg,rgba(120,220,255,.09) 1px,transparent 1px);background-size:48px 48px;mask-image:linear-gradient(to bottom,black,transparent 85%)}h1,h2,h3,.eyebrow,.number{font-family:'Space Grotesk',sans-serif}h1{font-size:clamp(3rem,7.5vw,8.6rem);line-height:.95;letter-spacing:-.065em;margin:.18em 0}h2{font-size:clamp(2.3rem,5vw,5.5rem);line-height:1.05;letter-spacing:-.055em;margin:.22em 0}h3{font-size:1.25rem;margin:.4em 0}p{line-height:1.7;color:var(--muted)}.eyebrow{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--cyan);font-weight:700}.wrap{width:min(1180px,calc(100% - 48px));margin:auto}.topbar{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:19px 3.5vw;background:linear-gradient(#050b15e8,#050b1500);backdrop-filter:blur(12px)}.brand{font:700 1rem 'Space Grotesk';letter-spacing:.12em}.brand span{color:var(--cyan)}.nav{display:flex;gap:18px;align-items:center}.nav a,.nav button{color:#c6dce9;text-decoration:none;font-size:.79rem;background:none;border:0;cursor:pointer}.nav a:hover,.nav button:hover{color:var(--cyan)}.progress{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--blue),var(--cyan));width:0;z-index:120;box-shadow:0 0 18px var(--cyan)}.hero{min-height:100svh;position:relative;display:flex;align-items:center;isolation:isolate;overflow:hidden}.hero:before{content:"";position:absolute;inset:-20%;background:radial-gradient(ellipse at 62% 46%,#123b64a6,transparent 38%),radial-gradient(ellipse at 20% 70%,#112f4a66,transparent 35%);z-index:-1}.hero .wrap{position:relative;z-index:3}.hero p{max-width:560px;font-size:1.1rem}.hero-copy{max-width:760px}.gradient{background:linear-gradient(110deg,#fff,#8ddcf3 55%,#5c9dff);background-clip:text;color:transparent}.cta{display:inline-flex;align-items:center;gap:14px;border:1px solid #3c839d;background:#0d263b;padding:13px 20px;border-radius:100px;color:#e7faff;text-decoration:none;font-size:.83rem;margin-top:24px;transition:transform .2s}.cta:hover{transform:translateY(-3px)}.hero-scroll{position:absolute;bottom:38px;left:3.5vw;z-index:5;font-size:.7rem;letter-spacing:.18em;color:#9ac9d7}.hero-scroll:before{content:'↓';display:inline-block;margin-right:12px;color:var(--cyan)}.scene{position:absolute;inset:0;z-index:1;pointer-events:none}.scene canvas{width:100%;height:100%;display:block}.scene-fallback{position:absolute;right:5%;top:22%;width:45%;opacity:.65;filter:drop-shadow(0 0 35px #18baf855);transform:rotate(-9deg)}.scene-fallback svg{width:100%}.section{position:relative;padding:125px 0}.section-header{max-width:760px;margin-bottom:48px}.section-header p{font-size:1.08rem}.split{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}.glass-panel{border:1px solid #21465c;background:linear-gradient(145deg,#10243bca,#07111dc9);border-radius:22px;padding:30px;box-shadow:0 24px 70px #0005}.pill{display:inline-block;border:1px solid #28617b;border-radius:50px;padding:7px 12px;font-size:.7rem;letter-spacing:.1em;color:#8de5f9}.metric{font:700 clamp(3rem,6vw,5.6rem) 'Space Grotesk';color:var(--cyan);letter-spacing:-.06em}.muted{color:var(--muted)}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.card{border:1px solid #193a51;background:linear-gradient(150deg,#0c1c2e,#091321);padding:28px;border-radius:20px;min-height:245px;transition:transform .3s,border-color .3s}.card:hover{transform:translateY(-7px);border-color:#4cc9ef}.card .number{color:var(--cyan);font-size:.76rem;letter-spacing:.12em}.card p{font-size:.92rem}.story{height:390vh;position:relative}.story-stage{position:sticky;top:0;height:100svh;display:flex;align-items:center;overflow:hidden;background:radial-gradient(ellipse at center,#0e2940,#050b15 70%)}.story-inner{width:min(1250px,calc(100% - 48px));margin:auto;display:grid;grid-template-columns:1fr 1.1fr;gap:40px;align-items:center}.story-copy{position:relative;min-height:240px}.story-step{position:absolute;inset:0;opacity:0;transform:translateY(24px);transition:opacity .25s,transform .25s;pointer-events:none}.story-step.active{opacity:1;transform:translateY(0)}.story-step h2{font-size:clamp(2rem,4.2vw,4.8rem)}.story-visual{position:relative;height:min(68vh,570px);display:grid;place-items:center}.story-visual canvas{width:100%;height:100%;display:block}.story-counter{position:absolute;bottom:38px;right:5vw;color:var(--cyan);font:.8rem 'Space Grotesk';letter-spacing:.15em}.chip-label{position:absolute;right:4%;top:10%;padding:10px 14px;border:1px solid #287896;background:#071d31e8;border-radius:10px;color:#c8f5ff;font-size:.76rem;opacity:0;transition:opacity .3s;max-width:min(42ch,78%);text-align:center;letter-spacing:.08em}.chip-label.active{opacity:1}.timeline{display:grid;gap:16px}.timeline-item{display:grid;grid-template-columns:110px 1fr;gap:22px;padding:23px;border-left:2px solid #2c7b9a;background:#0a1b2a;border-radius:0 14px 14px 0}.timeline-year{font:700 1.5rem 'Space Grotesk';color:var(--cyan)}.timeline-item h3{margin:0}.timeline-item p{margin:.35em 0}.flow{display:flex;gap:8px;align-items:stretch;flex-wrap:wrap}.flow-node{flex:1;min-width:125px;text-align:center;padding:22px 10px;border:1px solid #29627a;border-radius:15px;background:#0d2336;font-weight:700;font-size:.86rem}.flow-arrow{display:grid;place-items:center;color:var(--cyan);font-size:1.4rem}.demo{border:1px solid #2a7188;border-radius:22px;overflow:hidden;background:#081c2b}.demo-header{display:flex;justify-content:space-between;padding:14px 20px;background:#0d2a3d;border-bottom:1px solid #22536a;font-size:.76rem;color:#93dff4}.demo-screen{min-height:280px;display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:28px;align-items:center}.hand{font-size:clamp(5rem,13vw,10rem);text-align:center;filter:drop-shadow(0 0 25px #5be8ff55)}.result{padding:25px;border:1px solid #287896;border-radius:16px;background:#071523}.result strong{font-size:2rem;color:#9aeaff}.demo-actions{display:flex;gap:10px;padding:0 28px 24px;flex-wrap:wrap}button{font:inherit}.demo-actions button,.utility{border:1px solid #397e9a;background:#103149;color:#d8f9ff;padding:10px 16px;border-radius:10px;cursor:pointer}.demo-actions button:hover,.utility:hover{background:#174761}.two{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}.footer{padding:70px 0 100px;border-top:1px solid #20425a;text-align:center}.small{font-size:.76rem}.note{border-left:3px solid #4dbbd6;padding:12px 18px;background:#0b2232;color:#b6d6e5;font-size:.86rem}.reveal{opacity:0;transform:translateY(25px);transition:opacity .75s,transform .75s}.reveal.visible{opacity:1;transform:none}.outline{font:700 clamp(3.5rem,10vw,11rem) 'Space Grotesk';color:transparent;-webkit-text-stroke:1px #256080;letter-spacing:-.08em;line-height:1}.presenter{color:#89d8ef;font-size:.8rem;margin-top:25px}.references{font-size:.75rem;color:#89aabf}.topbar .mobile{display:none}@media(max-width:820px){.nav a{display:none}.topbar .mobile{display:block}.hero-copy{padding-top:120px}.hero h1{font-size:clamp(3rem,12vw,5rem)}.hero .scene{opacity:.35}.split,.story-inner,.two{grid-template-columns:1fr}.cards{grid-template-columns:1fr}.story{height:360vh}.story-inner{align-content:center;gap:10px}.story-visual{height:43vh;order:0}.story-copy{min-height:210px;order:1}.story-step h2{font-size:2rem}.story-step p{font-size:.88rem}.timeline-item{grid-template-columns:75px 1fr}.timeline-year{font-size:1.1rem}.demo-screen{grid-template-columns:1fr}.section{padding:85px 0}.flow-arrow{display:none}.flow-node{min-width:40%}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal{opacity:1;transform:none;transition:none}.story-step{transition:none}}
+</style>
+<style>
+.chapter-dock{position:fixed;right:20px;top:50%;transform:translateY(-50%);z-index:110;display:flex;flex-direction:column;gap:9px}
+.chapter-dot{width:12px;height:12px;border-radius:50%;border:1px solid #7ec8df;background:#092237;cursor:pointer;transition:.25s}
+.chapter-dot.active{background:#65e5ff;box-shadow:0 0 0 5px #50d8fa22,0 0 20px #65e5ff99}
+.chapter-dot:focus-visible{outline:2px solid white;outline-offset:4px}
+.presenter-bar{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);z-index:130;display:flex;align-items:center;gap:9px;background:#081a2aef;border:1px solid #357b96;border-radius:16px;padding:9px 12px;box-shadow:0 12px 40px #0009;backdrop-filter:blur(15px)}
+.presenter-bar button{border:1px solid #27556a;background:#102c40;color:#e3faff;border-radius:9px;padding:8px 12px;cursor:pointer}
+.presenter-bar button:hover{border-color:#75e9ff}.presenter-bar .section-name{font-size:.76rem;color:#9feaff;min-width:140px;text-align:center}
+.presenter-notes{position:fixed;bottom:82px;left:50%;transform:translateX(-50%);z-index:131;width:min(670px,calc(100vw - 30px));background:#071b2cf5;border:1px solid #3984a0;border-radius:16px;padding:18px 22px;box-shadow:0 16px 50px #000a;display:none}
+.presenter-notes.open{display:block}.presenter-notes strong{color:#79e9ff}.presenter-notes p{margin:8px 0 0;color:#d4e9f3;font-size:.91rem}
+.presenter-bar .keyhint{font-size:.68rem;color:#89a6b7}
+@media(max-width:820px){.chapter-dock{display:none}.presenter-bar{width:calc(100vw - 20px);justify-content:space-between;bottom:8px}.presenter-bar .keyhint{display:none}.presenter-bar .section-name{min-width:0}}
+@media print{.topbar,.chapter-dock,.presenter-bar,.presenter-notes,.progress{display:none!important}.reveal{opacity:1!important;transform:none!important}.story{height:auto!important}.story-stage{position:relative!important;height:auto!important}.story-step{position:relative!important;opacity:1!important}}
+</style>
+<style id="layout-v3">
+/* Escenario 16:9 con zonas seguras para proyección */
+:root{--safe-x:clamp(30px,5.4vw,112px);--safe-top:clamp(90px,12vh,140px);--safe-bottom:clamp(92px,12vh,128px)}
+.hero{min-height:100svh;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:center;padding:var(--safe-top) var(--safe-x) var(--safe-bottom);gap:clamp(22px,3vw,60px)}
+.hero .wrap{width:100%;margin:0;grid-column:1;z-index:4;pointer-events:none}
+.hero .hero-copy{max-width:650px}
+.hero .hero-copy>*{pointer-events:auto}
+.hero h1{font-size:clamp(3.15rem,5.45vw,6.2rem);line-height:1.015;letter-spacing:-.067em;margin:.22em 0 .25em}
+.hero p{font-size:clamp(.94rem,1.12vw,1.13rem);line-height:1.58;max-width:560px;margin:0}
+.hero .eyebrow{font-size:clamp(.65rem,.75vw,.78rem)}
+.hero .scene{position:relative;inset:auto;grid-column:2;grid-row:1;z-index:2;width:100%;height:min(65vh,680px);overflow:visible;min-width:0}
+.hero .scene canvas{width:100%!important;height:100%!important}
+.hero .scene-fallback{right:0;top:22%;width:100%}
+.hero .presenter{margin-top:26px;display:flex;flex-direction:column;gap:7px}
+.presenter-label{font-size:.65rem;letter-spacing:.16em;color:#70c6df;font-weight:700}
+.presenter-names{font-size:clamp(.82rem,.98vw,1rem);line-height:1.5;color:#c4e8f4}
+.presenter-names span{color:#4e94b4;padding:0 .25em}
+.hero .cta{margin-top:24px}
+.hero-scroll{bottom:clamp(20px,3vh,40px);left:var(--safe-x)}
+.topbar{padding:17px var(--safe-x)}
+.topbar .nav{gap:clamp(12px,1.4vw,23px)}
+.chapter-dock{right:clamp(12px,1.6vw,30px)}
+.presenter-bar{bottom:clamp(12px,1.8vh,25px);max-width:calc(100vw - 220px)}
+.section{padding:clamp(100px,15vh,170px) 0;min-height:100svh;display:flex;align-items:center;scroll-margin-top:0}
+.section>.wrap{width:min(1180px,calc(100% - 2 * var(--safe-x)))}
+.section h2{font-size:clamp(2.1rem,4.5vw,4.9rem)}
+.section .section-header{margin-bottom:clamp(20px,4vh,45px)}
+.section .glass-panel,.section .card{overflow-wrap:anywhere}
+.story-inner{width:min(1240px,calc(100% - 2 * var(--safe-x)))}
+.story-step h2{font-size:clamp(2rem,3.9vw,4.4rem)}
+@media(max-width:1100px){
+.hero{grid-template-columns:1.15fr .85fr}
+.hero h1{font-size:clamp(2.9rem,5.7vw,5.2rem)}
+.hero .scene{height:min(55vh,580px)}
+.topbar .nav{gap:11px}
+.topbar .nav a{font-size:.72rem}
+}
+@media(max-width:820px){
+.hero{display:flex;flex-direction:column;justify-content:center;align-items:stretch;padding:100px 28px 110px;gap:0}
+.hero .wrap{order:2;z-index:4}
+.hero .scene{order:1;position:relative;width:100%;height:min(34vh,290px);opacity:.9!important;flex:none}
+.hero h1{font-size:clamp(2.65rem,9.2vw,4.7rem)}
+.hero p{font-size:.95rem}
+.hero .eyebrow{font-size:.62rem}
+.hero .presenter{margin-top:15px}
+.hero .cta{margin-top:16px}
+.hero-scroll{left:28px;bottom:70px}
+.presenter-bar{max-width:calc(100vw - 20px)}
+.section{min-height:0;padding:100px 0}
+.section>.wrap,.story-inner{width:calc(100% - 48px)}
+}
+@media(max-height:720px) and (min-width:821px){
+.hero{padding-top:82px;padding-bottom:68px}
+.hero h1{font-size:clamp(2.6rem,4.8vw,5.1rem)}
+.hero .scene{height:62vh}
+.hero .presenter{margin-top:12px}
+.hero .cta{margin-top:14px}
+.hero-scroll{bottom:18px}
+.section{padding:90px 0}
+}
+@media(prefers-reduced-motion:reduce){.hero .scene{animation:none!important}}
+</style>
+<style>
+.story-route{position:absolute;bottom:35px;left:50%;transform:translateX(-50%);max-width:calc(100vw - 230px);padding:10px 18px;border:1px solid #28738d;border-radius:40px;background:#06192bdd;color:#d3f4ff;z-index:3;text-align:center;font-size:clamp(.63rem,.85vw,.85rem);letter-spacing:.06em;white-space:nowrap;backdrop-filter:blur(8px)}
+.story-route span{color:#5be8ff}
+@media(max-width:820px){.story-route{bottom:70px;max-width:calc(100vw - 30px);white-space:normal;border-radius:12px}.story-counter{bottom:16px}}
+</style><style id="screen-optimized-v5">
+/* Composición de proyección: márgenes de seguridad, altura y jerarquía */
+.screen-section{min-height:100svh;display:flex;align-items:center;padding:clamp(100px,12vh,155px) 0 clamp(105px,13vh,160px)}
+.screen-section .section-header{margin-bottom:clamp(22px,4vh,44px)}
+.screen-section .section-header h2{max-width:1000px;font-size:clamp(2.1rem,4.3vw,4.7rem);line-height:1.04}
+.screen-section .section-header p{max-width:890px;font-size:clamp(.88rem,1.1vw,1.09rem);line-height:1.5}
+.screen-section .card{min-height:0;padding:clamp(18px,2vw,29px)}
+.screen-section .card h3{font-size:clamp(1rem,1.35vw,1.3rem)}
+.screen-section .card p{font-size:clamp(.82rem,.95vw,.97rem);line-height:1.55}
+.screen-section .glass-panel{padding:clamp(20px,2.5vw,32px)}
+.story-route{font-size:clamp(.58rem,.8vw,.83rem);bottom:96px;z-index:6}
+.presenter-bar{bottom:14px}
+@media(max-height:780px) and (min-width:821px){
+.screen-section{padding:90px 0 100px}
+.screen-section .section-header{margin-bottom:18px}
+.screen-section .section-header h2{font-size:clamp(2rem,3.7vw,3.9rem)}
+.screen-section .card{padding:18px}
+.screen-section .card p{line-height:1.42}
+}
+@media(max-width:820px){
+.screen-section{padding:100px 0 120px;min-height:auto}
+.screen-section .cards{grid-template-columns:1fr}
+.story-route{bottom:90px}
+}
+</style><style id="v6-enhancements">
+/* Indicador explícito de capítulo para una sustentación guiada */
+.scene-heading{position:fixed;left:clamp(24px,5.4vw,112px);top:74px;z-index:108;max-width:min(48vw,620px);pointer-events:none;padding:10px 18px 10px 14px;border-left:3px solid #58e5ff;background:linear-gradient(90deg,#061829ec,#0618298a 72%,transparent);border-radius:0 12px 12px 0;backdrop-filter:blur(6px)}
+.scene-heading-kicker{font:700 .58rem 'Space Grotesk',sans-serif;letter-spacing:.19em;color:#71e3ff}
+.scene-heading-title{font:700 clamp(.96rem,1.35vw,1.28rem) 'Space Grotesk',sans-serif;color:#e9f9ff;margin-top:3px;letter-spacing:-.02em}
+.hero-floating{position:fixed!important;right:clamp(38px,5.4vw,112px)!important;left:auto!important;top:20vh!important;width:46vw!important;height:64vh!important;z-index:4!important;pointer-events:none!important;will-change:transform,opacity;transform-origin:center;transition:opacity .08s linear;overflow:visible!important}
+.hero-floating canvas{width:100%!important;height:100%!important}
+.hero .wrap{position:relative;z-index:5}
+.hero-anim-label{position:absolute;right:clamp(42px,5.4vw,112px);bottom:clamp(105px,14vh,150px);z-index:5;font-size:.62rem;letter-spacing:.17em;color:#83cfe6}
+.hero-anim-label span{color:#4eeaff;margin:0 5px}
+.story-title{position:absolute;top:clamp(105px,12vh,145px);left:clamp(30px,5.4vw,112px);z-index:5;font:700 .8rem 'Space Grotesk',sans-serif;color:#7de8ff;letter-spacing:.16em}
+.story-title span{color:#b5d6e7;font-weight:400}
+@media(max-width:1050px){.hero-floating{width:48vw!important;right:2vw!important}}
+@media(max-width:820px){.scene-heading{top:65px;left:18px;max-width:calc(100vw - 36px);padding:6px 12px}.scene-heading-title{font-size:.9rem}.hero-floating{top:13vh!important;left:5vw!important;right:auto!important;width:90vw!important;height:32vh!important;opacity:.45!important}.hero-anim-label{display:none}.story-title{left:24px;top:80px;font-size:.64rem}}
+@media(prefers-reduced-motion:reduce){.hero-floating{transition:none!important}}
+</style><style id="v7-hero-problem">
+/* V7: rótulos sin integrante, gafas protagonistas en portada, problema en columna izquierda */
+.hero-floating{right:clamp(5px,1.5vw,30px)!important;top:13vh!important;width:55vw!important;height:76vh!important;transform-origin:center center!important}
+.hero .hero-copy{max-width:650px}
+.hero .wrap{pointer-events:none}
+.hero .hero-copy a{pointer-events:auto}
+#problema .problem-layout{display:grid!important;grid-template-columns:minmax(0,48%) minmax(0,52%);align-items:center;gap:clamp(20px,3vw,50px);min-height:min(72vh,690px)}
+#problema .problem-copy{min-width:0;max-width:660px}
+#problema .problem-copy h2{font-size:clamp(2.5rem,4.3vw,4.7rem);line-height:1.05;margin:0 0 clamp(13px,2vh,25px)}
+#problema .problem-copy>p{font-size:clamp(.84rem,1vw,1rem);line-height:1.48;margin:0 0 14px}
+#problema .problem-copy .note{padding:11px 15px;font-size:clamp(.76rem,.87vw,.92rem);line-height:1.4;margin:10px 0 0}
+#problema .problem-copy .glass-panel{margin-top:clamp(14px,2vh,24px);padding:clamp(16px,1.8vw,26px);max-width:580px;position:relative;z-index:1}
+#problema .problem-copy .glass-panel .metric{font-size:clamp(2.8rem,4.3vw,5rem);line-height:1.05;margin:4px 0}
+#problema .problem-copy .glass-panel h3{font-size:clamp(.96rem,1.1vw,1.17rem);margin:4px 0}
+#problema .problem-copy .glass-panel p{font-size:clamp(.78rem,.9vw,.94rem);line-height:1.4;margin:6px 0 12px}
+#problema .problem-copy .glass-panel .pill{font-size:.7rem}
+#problema .problem-visual-space{height:min(70vh,650px);pointer-events:none}
+@media(max-height:760px) and (min-width:821px){#problema{padding:92px 0 85px}#problema .problem-layout{min-height:0}#problema .problem-copy h2{font-size:clamp(2.2rem,3.55vw,3.5rem)}#problema .problem-copy .glass-panel{padding:13px 20px;margin-top:12px}#problema .problem-copy .glass-panel .metric{font-size:3rem}#problema .problem-copy>p{line-height:1.35}}
+@media(max-width:820px){.hero-floating{left:3vw!important;right:auto!important;top:12vh!important;width:94vw!important;height:34vh!important}#problema .problem-layout{display:block!important;min-height:0}#problema .problem-copy{max-width:none}#problema .problem-visual-space{display:none}#problema .problem-copy h2{font-size:clamp(2.2rem,8vw,3.6rem)}#problema .problem-copy .glass-panel{max-width:none}}
+</style><style>.hero-floating canvas{filter:drop-shadow(0 12px 35px rgba(45,180,250,.18))}</style><style>.hero-floating{top:18vh!important;height:61vh!important;width:49vw!important;right:3.2vw!important}.hero-anim-label{right:5.5vw!important}@media(max-width:820px){.hero-floating{top:14vh!important;height:33vh!important;width:94vw!important;right:3vw!important}}</style><style id="v12-hero-only">/* V12: modelo grande en portada, luego menor al avanzar; otras escenas intactas */
+.hero-floating{right:1vw!important;top:13vh!important;width:55vw!important;height:70vh!important}
+.hero-anim-label{right:5.5vw!important}
+@media(max-width:820px){.hero-floating{left:3vw!important;right:auto!important;top:13vh!important;width:94vw!important;height:34vh!important}}
+</style><style id="v13-canvas-framing">
+/* V13 — Sin reducir el modelo: ampliamos el lienzo WebGL para que las patillas no se recorten.
+   Mantenemos el centro del modelo sobre la parte derecha de la diapositiva.
+   El campo de vision vertical, la escala 3D y la altura siguen idénticos a V12. */
+@media (min-width: 821px) {
+  .hero-floating {
+    width: 72vw !important;
+    right: -8vw !important;
+    left: auto !important;
+    height: 70vh !important;
+    top: 13vh !important;
+    max-width: none !important;
+    overflow: visible !important;
+  }
+}
+@media (min-width: 821px) and (max-width: 1250px) {
+  .hero-floating { width: 78vw !important; right: -11vw !important; }
+}
+/* La adaptación de tamaños pequeños conserva el diseño original. */
+@media (max-width: 820px) {
+  .hero-floating { width: 94vw !important; right: auto !important; left: 3vw !important; }
+}
+</style><style>
+/* V15: permanencia visual extendida de las gafas */
+.hero-floating{
+  z-index: 2 !important;
+  width: 53vw !important;
+  right: 1.5vw !important;
+  top: 17vh !important;
+}
+@media (max-width: 820px){
+  .hero-floating{
+    width: 94vw !important;
+    right: 0 !important;
+    top: 15vh !important;
+  }
+}
+.section .wrap,
+.hero .wrap,
+.scene-heading,
+.topbar,
+.presenter-bar{
+  position: relative;
+  z-index: 5;
+}
+</style><style>
+/* V16: permanencia extendida hasta la escena 5 */
+.hero-floating{
+  z-index: 2 !important;
+}
+.section .wrap,
+.hero .wrap,
+.scene-heading,
+.topbar,
+.presenter-bar{
+  position: relative;
+  z-index: 5;
+}
+</style><style id="v17-fullscreen-cinematic">
+/* V17 — Escenario 3D a pantalla completa.
+   No trasladamos el canvas fuera de la pantalla: movemos el modelo dentro de la cámara. */
+.hero-floating,
+#heroScene.hero-floating {
+ position:fixed!important;
+ inset:0!important;
+ top:0!important;right:0!important;bottom:0!important;left:0!important;
+ width:100vw!important;height:100dvh!important;max-width:none!important;
+ overflow:hidden!important;transform:none!important;
+ transform-origin:center center!important;
+ pointer-events:none!important;
+ z-index:3!important;
+ transition:opacity .12s linear!important;
+}
+.hero-floating canvas {width:100%!important;height:100%!important;display:block}
+body {overflow-x:hidden}
+
+/* Escenas 3, 4 y 5: dejar la mitad derecha libre para el modelo 3D.
+   Tres tarjetas verticales, ordenadas como puntos de una narración. */
+@media (min-width:840px) {
+ .glasses-feature-section {
+   min-height:100svh!important;
+   display:flex!important;
+   align-items:center!important;
+   padding:clamp(108px,11vh,142px) 0 clamp(98px,11vh,130px)!important;
+ }
+ .glasses-feature-section .wrap{
+   width:min(1340px,calc(100% - 10vw))!important;
+   margin:0 auto!important;
+ }
+ .glasses-feature-section .wrap>.eyebrow,
+ .glasses-feature-section .section-header,
+ .glasses-feature-section .cards{
+   width: min(49%,665px)!important;
+   max-width:none!important;
+ }
+ .glasses-feature-section .section-header {
+   margin-bottom:clamp(13px,2.5vh,25px)!important;
+ }
+ .glasses-feature-section .section-header h2{
+   font-size:clamp(2.15rem,3.8vw,4.2rem)!important;
+   line-height:1.035!important;
+ }
+ .glasses-feature-section .section-header p{
+   font-size:clamp(.85rem,1vw,1rem)!important;
+   line-height:1.48!important;
+   margin-top:11px!important;
+ }
+ .glasses-feature-section .cards{
+   display:grid!important;
+   grid-template-columns:minmax(0,1fr)!important;
+   gap:clamp(9px,1.15vh,14px)!important;
+ }
+ .glasses-feature-section .card{
+   min-height:0!important;
+   border-radius:15px!important;
+   padding:clamp(12px,1.6vh,18px) clamp(16px,1.5vw,22px)!important;
+   display:flex!important;
+   flex-direction:column!important;
+   justify-content:center;
+   gap:clamp(2px,.35vh,5px)!important;
+   background:linear-gradient(105deg,#0a1e32ed,#091626db)!important;
+   backdrop-filter:blur(10px);
+ }
+ .glasses-feature-section .card .number{
+   font-size:clamp(.65rem,.77vw,.78rem)!important;
+   margin-bottom:2px!important;
+ }
+ .glasses-feature-section .card h3{
+   font-size:clamp(.98rem,1.12vw,1.20rem)!important;
+   margin:0!important;
+   line-height:1.22!important;
+ }
+ .glasses-feature-section .card p{
+   font-size:clamp(.82rem,.9vw,.99rem)!important;
+   line-height:1.47!important;
+   margin:0!important;
+ }
+ #propuesta.glasses-feature-section .section-header h2{margin:5px 0 8px!important}
+}
+@media (min-width:840px) and (max-height:700px){
+ .glasses-feature-section{padding:86px 0 86px!important}
+ .glasses-feature-section .section-header h2{font-size:clamp(2rem,3.1vw,3.3rem)!important}
+ .glasses-feature-section .section-header{margin-bottom:10px!important}
+ .glasses-feature-section .card{padding:9px 14px!important}
+ .glasses-feature-section .card p{line-height:1.28!important}
+ .glasses-feature-section .cards{gap:7px!important}
+}
+@media (max-width:839px){
+ .hero-floating {height:100dvh!important;width:100vw!important;}
+ .glasses-feature-section {min-height:auto!important;padding:44vh 0 115px!important}
+ .glasses-feature-section .wrap{width:min(100% - 34px,610px)!important}
+ .glasses-feature-section .cards{grid-template-columns:1fr!important}
+ .glasses-feature-section .card{min-height:0!important;padding:16px!important}
+ .hero .hero-copy{position:relative;z-index:7}
+}
+/* El texto permanece legible; las gafas son protagonistas en el espacio despejado de la derecha. */
+#problema .problem-copy,
+.glasses-feature-section .wrap{
+ position:relative;z-index:5;
+}
+</style><style id="v18-framing-and-header-fix">
+/* Restore fixed application chrome, which V15 accidentally turned into page content. */
+header.topbar {position:fixed!important;top:0!important;left:0!important;right:0!important;z-index:110!important;
+  padding:17px clamp(28px,5.35vw,110px)!important;box-sizing:border-box!important;
+  display:flex!important;align-items:center!important;justify-content:space-between!important;}
+.scene-heading {position:fixed!important;top:clamp(82px,9vh,100px)!important;left:clamp(28px,5.35vw,110px)!important;
+  z-index:109!important;max-width:min(32vw,420px)!important;}
+.presenter-bar {position:fixed!important;left:50%!important;transform:translateX(-50%)!important;
+  bottom:clamp(12px,1.8vh,25px)!important;z-index:120!important;}
+.chapter-dock{position:fixed!important;z-index:121!important;}
+.progress{position:fixed!important;z-index:130!important;}
+.hero-floating{position:fixed!important;inset:0!important;width:100vw!important;height:100dvh!important;
+  max-width:none!important;pointer-events:none!important;overflow:hidden!important;z-index:3!important;}
+.hero-floating canvas{display:block!important;width:100%!important;height:100%!important;}
+@media (max-width:839px){
+  header.topbar{padding:14px 20px!important;}
+  .scene-heading{top:70px!important;left:20px!important;max-width:50vw!important;}
+  .hero-floating{width:100vw!important;height:100dvh!important;}
+}
+</style><style id="v21-15-scene-layout">
+/* LSC / VISION — estructura de 15 escenas individuales con márgenes seguros para proyección */
+:root{--slide-ink:#eaf7ff;--slide-dim:#a5bed0;--slide-line:#1f465f}
+html{scroll-padding-top:0}
+.presentation-slide{min-height:100svh;display:flex;align-items:center;padding:clamp(105px,12vh,145px) 0 clamp(104px,11vh,136px)!important;position:relative;isolation:isolate}
+.presentation-slide .slide-container{width:min(1370px,calc(100% - 10.8vw));margin:0 auto;position:relative;z-index:5}
+.presentation-slide .slide-intro{margin-bottom:clamp(23px,3vh,36px)}
+.presentation-slide .slide-intro h2{font-size:clamp(2.25rem,4.3vw,4.6rem);line-height:1.045;letter-spacing:-.065em;max-width:1160px;margin:11px 0}
+.presentation-slide .slide-intro .eyebrow{font-size:.69rem;letter-spacing:.19em}
+.presentation-slide .slide-subtitle{font-size:clamp(.89rem,1.06vw,1.13rem);line-height:1.55;margin:12px 0 0}
+.presentation-slide .deck{font-size:clamp(.88rem,1vw,1.04rem);line-height:1.55;margin:0 0 13px}
+.presentation-slide .micro-title{font:.71rem 'Space Grotesk',sans-serif;letter-spacing:.15em;font-weight:700;color:var(--cyan);margin:12px 0 10px}
+.presentation-slide .tag{font:.66rem 'Space Grotesk',sans-serif;letter-spacing:.13em;font-weight:700;color:var(--cyan)}
+/* Las cinco primeras escenas dan espacio a las gafas; el canvas principal se coloca detrás del texto. */
+.hero-companion .slide-intro{width:min(50%,680px);margin-bottom:13px}
+.hero-companion .slide-intro h2{font-size:clamp(2.1rem,3.65vw,3.9rem);margin:8px 0 14px}
+.hero-companion .scene-left-column{width:min(49%,655px);max-width:100%}
+.glasses-clear-space{position:absolute;left:56%;right:0;top:0;bottom:0;pointer-events:none}
+.environment-chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:15px}
+.environment-chips span,.feature-tags span,.test-factors span{display:inline-flex;align-items:center;gap:7px;border:1px solid #24617e;border-radius:100px;padding:8px 14px;background:#102b406b;color:#daf5ff;font-size:.81rem}
+.environment-chips i{display:none}
+.signal-stack{display:grid;gap:7px}
+.signal-stack>div{display:flex;align-items:center;gap:13px;border:1px solid #1b3e56;background:linear-gradient(90deg,#0e2536d8,#091c2a8b);border-radius:11px;padding:10px 13px;font-size:.84rem;color:#cce2f1}
+.signal-stack b,.objective-list b{font:.78rem 'Space Grotesk';font-weight:700;color:var(--cyan)}
+.issue-note{border-left:3px solid var(--cyan);padding:11px 14px;background:#0e2a3be3;margin-top:15px;border-radius:0 10px 10px 0}
+.issue-note strong{font:.67rem 'Space Grotesk';letter-spacing:.15em;color:var(--cyan)}
+.issue-note p{font-size:.83rem;line-height:1.52;margin:5px 0 0}
+.compact-stack{display:grid;gap:9px}
+.compact-card{border:1px solid #23516b;background:linear-gradient(110deg,#0b2135ea,#091c2cdb);border-radius:14px;padding:13px 16px;backdrop-filter:blur(8px)}
+.compact-card .tag{margin-bottom:5px}
+.compact-card h3{font-size:clamp(.98rem,1.1vw,1.22rem);margin:6px 0}
+.compact-card p{font-size:clamp(.77rem,.86vw,.92rem);line-height:1.45;margin:0}
+.guardrail{border-left:2px solid #58defc;font-size:clamp(.76rem,.85vw,.89rem);background:#092235e3;padding:9px 12px;margin:11px 0 0!important;line-height:1.5}
+.guardrail strong{color:white}
+.general-goal{border:1px solid #2a7391;border-radius:15px;padding:13px 18px;background:#0a2338e6;margin:0 0 13px}
+.general-goal>span{font:.69rem 'Space Grotesk';letter-spacing:.14em;color:var(--cyan);font-weight:700}
+.general-goal p{font-size:clamp(.82rem,.89vw,1rem);color:#e1f0fc;line-height:1.5;margin:7px 0 0}
+.general-goal small{color:#85bfd2;display:block;margin-top:7px;font-size:.73rem}
+.objective-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.objective-list>div{display:flex;gap:9px;align-items:start;background:#0d2134df;border:1px solid #213d53;border-radius:11px;padding:11px 12px;min-height:56px}
+.objective-list>div span{color:#c8dfec;font-size:clamp(.74rem,.8vw,.85rem);line-height:1.43}
+.pipeline-list{display:grid;gap:7px}
+.pipeline-list>div{display:flex;align-items:center;gap:13px;background:#0b2034e6;border:1px solid #264159;border-radius:11px;padding:9px 13px}
+.pipeline-list>div>span{color:var(--cyan);font:700 .84rem 'Space Grotesk';min-width:24px}
+.pipeline-list p{font-size:.83rem;line-height:1.45;margin:0}
+.pipeline-list strong{color:#e8fcff}
+.condition-note{margin-top:11px;font-size:.81rem;color:#bcd9e9;line-height:1.45}
+.condition-note b{color:var(--cyan);font:.67rem 'Space Grotesk';letter-spacing:.1em;margin-right:8px}
+/* Escenas 6–15: tarjetas, diagramas e información organizada. */
+.research-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.research-card{min-height:300px;background:linear-gradient(150deg,#10273bf1,#071625f3);border:1px solid #27506a;border-radius:21px;padding:clamp(17px,1.65vw,27px);display:flex;flex-direction:column}
+.research-header{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.research-header strong{font:700 clamp(1.4rem,2vw,2rem) 'Space Grotesk';color:var(--cyan)}
+.research-header span{font:.60rem 'Space Grotesk';letter-spacing:.09em;color:#7bc5dc;text-align:right}
+.research-card h3{font-size:clamp(1.18rem,1.55vw,1.58rem);line-height:1.25;margin:15px 0 3px}
+.organization{font-size:.8rem;color:#85c2da;min-height:20px}
+.research-card>p{font-size:clamp(.85rem,.96vw,.99rem);line-height:1.54;margin:18px 0}
+.research-impact{margin-top:auto;border-top:1px solid #27455b;padding-top:13px;display:grid;gap:6px}
+.research-impact b{color:var(--cyan);font:.67rem 'Space Grotesk';letter-spacing:.13em}
+.research-impact span{font-size:clamp(.81rem,.87vw,.94rem);color:#def5ff}
+.slide-footnote{margin:18px 0 0;color:#91bad0;font-size:clamp(.78rem,.88vw,.9rem);line-height:1.55}
+.colombia-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+.colombia-card{min-height:320px}
+.colombia-card h3{margin:15px 0 13px}
+.stat-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:8px 0 22px}
+.stat-strip>div{background:#061c2ea8;border:1px solid #225574;border-radius:13px;padding:14px 9px;text-align:center}
+.stat-strip b{font:700 clamp(1.15rem,2.2vw,2.15rem) 'Space Grotesk';color:var(--cyan);display:block}
+.stat-strip span{font-size:.77rem;color:#bbd2e0}
+.feature-tags{display:flex;gap:9px;margin:11px 0 23px;flex-wrap:wrap}
+.lesson-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.lesson-card{border:1px solid #255371;background:#0a1d31;border-radius:20px;padding:clamp(20px,2.2vw,34px);min-height:250px}
+.lesson-count{font:700 clamp(2rem,4vw,3.7rem) 'Space Grotesk';color:var(--cyan);letter-spacing:-.06em}
+.lesson-card h3{font-size:clamp(1.14rem,1.3vw,1.43rem)}
+.lesson-card p{font-size:clamp(.84rem,.95vw,1rem);line-height:1.58}
+.takeaway{border:1px solid #27647b;border-left:3px solid var(--cyan);border-radius:0 15px 15px 0;background:linear-gradient(90deg,#10324aed,#0c1f2ee8);padding:18px 24px;margin-top:22px}
+.takeaway>span{font:.69rem 'Space Grotesk';font-weight:700;letter-spacing:.12em;color:var(--cyan)}
+.takeaway p{margin:8px 0 0;color:#e4f4ff;font-size:clamp(.9rem,1.1vw,1.15rem);line-height:1.5}
+.concept-pair{display:grid;grid-template-columns:1fr 1fr;gap:17px}
+.concept-card{border:1px solid #24506b;border-radius:20px;background:#0c2236e8;padding:25px;min-height:176px}
+.concept-card .number{font:.69rem 'Space Grotesk';letter-spacing:.15em;color:var(--cyan)}
+.concept-card h3{font-size:clamp(1.22rem,1.5vw,1.65rem);margin:12px 0 8px}
+.concept-card p{font-size:clamp(.86rem,.95vw,1rem);line-height:1.5;margin:0}
+.flow-head{font:.7rem 'Space Grotesk';color:var(--cyan);letter-spacing:.13em;margin:26px 0 12px;font-weight:700}
+.recognition-flow{display:flex;gap:8px;align-items:center}
+.recognition-flow>div{flex:1;min-width:0;background:#0c2539;border:1px solid #27617c;border-radius:14px;padding:19px 11px;display:grid;gap:6px;min-height:90px}
+.recognition-flow>div span{font:.75rem 'Space Grotesk';color:var(--cyan)}
+.recognition-flow>div b{font-size:clamp(.81rem,.95vw,1rem)}
+.recognition-flow>i{color:var(--cyan);font-size:1.5rem;font-style:normal}
+.hardware-layout{display:grid;grid-template-columns:minmax(320px,.72fr) minmax(560px,1.28fr);gap:34px;align-items:center}
+.hardware-highlight{order:2;min-height:620px;padding:0;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center;background:transparent!important;border:none!important;box-shadow:none!important}
+.hardware-symbol{position:relative;width:170px;height:150px;display:flex;align-items:center;justify-content:center;gap:2px;border:2px solid #58c9f3;border-radius:20px;background:linear-gradient(145deg,#0b4c71,#072238);box-shadow:0 0 50px #00aeff18;color:#d2f8ff;font:700 2.5rem 'Space Grotesk';margin-bottom:22px}
+.hardware-symbol span{color:var(--cyan)}
+.hardware-symbol small{position:absolute;bottom:21px;right:33px;font:700 .8rem 'Space Grotesk';letter-spacing:.16em}
+.hardware-highlight h3{display:none}
+.hardware-highlight p{display:none}
+.hardware-hint{display:none}
+.hardware-details{order:1;display:grid;gap:14px;align-content:start;max-width:100%}
+.hardware-details>div{display:flex;gap:16px;align-items:flex-start;border:1px solid #244b63;border-radius:16px;background:#0c2033;padding:18px 20px;min-height:114px}
+.hardware-number{font:700 1.9rem 'Space Grotesk';color:var(--cyan);min-width:44px;line-height:1}
+.hardware-details section{min-width:0}
+.hardware-details h3{font-size:1.2rem;margin:0 0 7px}
+.hardware-details p{font-size:.95rem;line-height:1.5;margin:0;color:#c7dceb}
+.hardware-footer{display:flex;align-items:center;justify-content:center;gap:13px;margin-top:8px;flex-wrap:wrap}
+.hardware-footer b{font:.66rem 'Space Grotesk';letter-spacing:.12em;color:var(--cyan)}
+.hardware-footer span{border:1px solid #24485f;border-radius:99px;padding:7px 13px;color:#b9d5e7;font-size:.83rem}
+.architecture-diagram{display:grid;grid-template-columns:1fr 185px 1fr;gap:17px;align-items:center}
+.device-card{border:1px solid #2d657f;border-radius:22px;background:linear-gradient(145deg,#102d43,#081929);padding:28px;min-height:340px}
+.device-step{font:.68rem 'Space Grotesk';color:var(--cyan);letter-spacing:.14em}
+.device-glyph{font:700 4rem 'Space Grotesk';line-height:1;color:#82e6fa;margin:18px 0 5px}
+.device-card h3{font-size:1.42rem;margin:10px 0}
+.device-card p{font-size:.9rem;line-height:1.52}
+.device-list{display:grid;gap:7px;margin-top:19px}
+.device-list span{padding-left:13px;border-left:2px solid #46bbdb;color:#d0e9f7;font-size:.85rem}
+.wifi-connector{text-align:center;display:grid;gap:14px;justify-items:center}
+.wifi-connector>span{font:700 1.55rem 'Space Grotesk';color:#9beaff}
+.wifi-line{display:flex;gap:10px;justify-content:space-between;width:100%;align-items:center;height:2px;background:linear-gradient(90deg,transparent,#47dafa 30%,#47dafa 70%,transparent)}
+.wifi-line i{height:10px;width:10px;border-radius:50%;background:#60edff;box-shadow:0 0 15px #61eaff;animation:wifi-pulse 1.8s ease-in-out infinite alternate}
+.wifi-line i:nth-child(2){animation-delay:.3s}.wifi-line i:nth-child(3){animation-delay:.6s}
+.wifi-connector small{font:.6rem 'Space Grotesk';letter-spacing:.12em;color:#8bc5db}
+@keyframes wifi-pulse{from{opacity:.35}to{opacity:1}}
+.principle-note{border:1px solid #2f7b8d;background:#0e2d3de6;border-radius:15px;margin-top:20px;padding:15px 20px;display:flex;align-items:center;gap:25px}
+.principle-note strong{font:.64rem 'Space Grotesk';letter-spacing:.11em;color:var(--cyan);min-width:170px}
+.principle-note p{color:#e0f2fa;margin:0;font-size:1.05rem;line-height:1.4}
+.principle-note p span{color:var(--cyan);font-weight:700}
+.presentation-story .story-title{z-index:7}
+.presentation-story .story-copy{min-height:340px}
+.presentation-story .story-step{display:flex;flex-direction:column;justify-content:center}
+.presentation-story .story-step h2{font-size:clamp(2.4rem,4vw,4.5rem);line-height:1.06}
+.presentation-story .story-step p{max-width:470px;font-size:1.05rem}
+.presentation-story .story-design-label{position:absolute;right:5.4vw;top:11vh;font:.63rem 'Space Grotesk';color:#80bdd1;letter-spacing:.12em}
+.validation-layout{display:grid;grid-template-columns:.87fr 1.13fr;gap:23px}
+.validation-vocabulary{border:1px solid #23607b;border-radius:20px;background:#0a2739;padding:26px}
+.validation-vocabulary .metric{font-size:clamp(3.7rem,7vw,7rem);line-height:1.2;margin:8px 0}
+.validation-vocabulary h3{font-size:1.3rem}
+.validation-vocabulary p{font-size:.91rem;line-height:1.5}
+.validation-right{border:1px solid #224c68;background:#091a2c;border-radius:20px;padding:25px}
+.validation-right .micro-title{margin:0 0 13px}
+.validation-metrics{display:grid;gap:9px}
+.validation-metrics span{padding:11px 14px;border-left:2px solid var(--cyan);background:#103047;border-radius:0 10px 10px 0;color:#d8f0fb;font-size:.91rem}
+.second-title{margin-top:24px!important}
+.test-factors{display:flex;gap:7px;flex-wrap:wrap}
+.test-factors span{font-size:.79rem}
+.subtle-takeaway{margin-top:17px;padding:12px 20px}
+.limits-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}
+.limit-card{padding:20px 25px;border:1px solid #24536b;background:#0b2033;border-radius:18px;min-height:150px}
+.limit-card .number{font:.68rem 'Space Grotesk';letter-spacing:.12em;color:var(--cyan)}
+.limit-card h3{font-size:1.18rem;margin:11px 0 6px}
+.limit-card p{font-size:.89rem;margin:0;line-height:1.48}
+.conclusion-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:17px}
+.conclusion-grid>div{border:1px solid #2a526b;border-radius:20px;background:#0b2033;padding:25px;min-height:225px}
+.conclusion-grid b{font:700 2rem 'Space Grotesk';color:var(--cyan)}
+.conclusion-grid h3{font-size:1.2rem;margin:12px 0}
+.conclusion-grid p{font-size:.89rem;line-height:1.55}
+.closing-thesis{font-size:1.12rem;max-width:1000px;text-align:center;margin:26px auto 0;color:#cfe9f7}
+.closing-thanks{display:grid;justify-items:center;gap:2px;margin:22px 0 -16px}
+.closing-thanks strong{font:700 clamp(1.6rem,2.8vw,3rem) 'Space Grotesk';color:#b5f3ff}
+.closing-thanks span{font:500 1.08rem 'Space Grotesk';color:#8ad7f0}
+/* UI fixing and presentation safety */
+header.topbar{position:fixed!important;z-index:112!important}
+.scene-heading{position:fixed!important;z-index:113!important}
+.presenter-bar{position:fixed!important;z-index:115!important}
+.chapter-dock{z-index:114!important}
+@media(min-width:840px) and (max-height:740px){
+ .presentation-slide{padding:95px 0 100px!important}
+ .presentation-slide .slide-intro{margin-bottom:15px}
+ .presentation-slide .slide-intro h2{font-size:clamp(2rem,3.5vw,3.7rem)}
+ .compact-card{padding:10px 14px}
+ .compact-card p{line-height:1.36}
+ .objective-list>div{padding:9px 10px;min-height:48px}
+ .pipeline-list>div{padding:8px 10px}
+ .research-card{min-height:260px}
+ .hardware-highlight,.device-card{min-height:275px}
+ .lesson-card{min-height:210px}
+}
+@media(max-width:839px){
+ .presentation-slide{min-height:auto!important;padding:100px 0 130px!important}
+ .presentation-slide .slide-container{width:calc(100% - 42px)!important}
+ .presentation-slide .slide-intro h2{font-size:clamp(2rem,8vw,3.4rem)}
+ .hero-companion{padding-top:44vh!important}
+ .hero-companion .slide-intro,.hero-companion .scene-left-column{width:100%!important}
+ .research-grid,.colombia-grid,.lesson-grid,.concept-pair,.hardware-layout,.validation-layout,.limits-grid,.conclusion-grid{grid-template-columns:1fr}
+ .architecture-diagram{grid-template-columns:1fr;gap:16px}
+ .wifi-connector{transform:rotate(90deg);height:75px;margin:auto}
+ .device-card{min-height:auto}
+ .recognition-flow{display:grid;grid-template-columns:1fr}
+ .recognition-flow>i{transform:rotate(90deg);justify-self:center}
+ .presentation-story .story-step h2{font-size:clamp(1.8rem,6.5vw,3rem)}
+ .presentation-story .story-design-label{display:none}
+ .presentation-story .story-copy{min-height:235px}
+ .presentation-story .story-visual{height:41vh}
+ .presentation-story .story-route{white-space:normal;line-height:1.3;max-width:calc(100vw - 32px);bottom:63px}
+ .principle-note{flex-direction:column;align-items:flex-start;gap:9px}
+ .hardware-footer{justify-content:flex-start}
+}
+@media(prefers-reduced-motion:reduce){.wifi-line i{animation:none}}
+</style><style id="v21-nav-last">.topbar .nav{gap:clamp(8px,1vw,18px)}.topbar .nav a{white-space:nowrap}@media(min-width:840px) and (max-width:1260px){.topbar .nav a{font-size:.71rem}}</style><style id="v22-esp32-3d">
+/* V22 | A second GLB in scenes 10 and 11. Preserve all other scenarios. */
+#componentes .hardware-layout{grid-template-columns:minmax(0,.84fr) minmax(0,1.16fr);gap:clamp(17px,2vw,30px);align-items:stretch}
+#componentes .hardware-details{order:1;align-self:stretch;display:grid;grid-template-rows:repeat(3,minmax(0,1fr));gap:clamp(10px,1.6vh,16px)}
+#componentes .hardware-highlight{order:2;position:relative;padding:clamp(13px,1.5vw,23px);min-height:clamp(365px,51vh,500px);overflow:hidden;gap:5px;background:radial-gradient(circle at 54% 47%,#103a57 0%,#0a263d 45%,#051521 86%);border-color:#267a9e;box-shadow:inset 0 0 40px #0f3f5460,0 18px 45px #0003}
+#componentes .hardware-highlight>h3{font-size:clamp(1.10rem,1.28vw,1.48rem);line-height:1.18;margin:6px 0 0}
+#componentes .hardware-highlight>p{font-size:clamp(.78rem,.84vw,.91rem);margin:1px 0 4px;line-height:1.34;max-width:570px;color:#bdd5e4}
+#componentes .hardware-highlight .hardware-hint{margin:0;font-size:.61rem}
+#componentes .hardware-details>div{min-height:0;padding:clamp(11px,1.4vw,20px)}
+#componentes .hardware-footer{margin-top:12px}
+.camera-stage{width:100%;height:clamp(430px,62vh,720px);position:relative;overflow:visible;border:none;border-radius:0;background:transparent!important;isolation:isolate;box-shadow:none!important}
+.camera-stage-grid{display:none}
+.camera-stage-halo{position:absolute;width:88%;aspect-ratio:1;left:6%;top:2%;border-radius:50%;box-shadow:0 0 120px #1a95dd40,inset 0 0 42px #005b7c1a;pointer-events:none;background:radial-gradient(circle,#1d88cf12 0%,#0b224500 68%)}
+.camera-stage::before,.camera-stage::after,.hardware-highlight::before,.hardware-highlight::after{display:none!important;content:none!important}
+.camera-stage-topline{display:none}
+.camera-live-dot{display:none}
+.camera-webgl{height:100%;width:100%;cursor:grab;touch-action:none;position:relative;z-index:2;background:transparent!important}
+.camera-webgl.dragging{cursor:grabbing;touch-action:none}
+.camera-webgl canvas,.mini-module-render canvas{display:block;width:100%;height:100%;background:transparent!important}
+.camera-loader{position:absolute;top:50%;left:0;right:0;color:#aad7ea;text-align:center;font-size:.78rem;letter-spacing:.12em}
+.camera-stage-controls{position:absolute;left:0;right:0;bottom:-10px;z-index:4;display:flex;align-items:center;justify-content:flex-end;gap:12px;font-size:clamp(.58rem,.62vw,.76rem);letter-spacing:.11em;color:#b4d5e9;pointer-events:none} .camera-stage-controls>span{display:none!important}
+.camera-actions{display:flex;align-items:center;gap:10px;pointer-events:auto}.camera-reset{font:inherit;letter-spacing:.04em;border:1px solid #3d8fb0;border-radius:99px;background:rgba(4,21,37,.58);backdrop-filter:blur(8px);color:#a0ecff;padding:9px 12px;cursor:pointer;pointer-events:auto;box-shadow:0 10px 32px rgba(0,0,0,.18)}.camera-focus{border-color:#52c7e6;background:rgba(10,33,52,.72)}
+.camera-reset:focus-visible{outline:2px solid #71eaff;outline-offset:2px}
+.model-disclaimer{display:none}
+.model-disclaimer strong{color:#cde8f7;font-weight:600}
+.model-disclaimer a{color:#85ecff;text-decoration:underline;text-underline-offset:2px}
+.hardware-arch-mini{display:flex;align-items:center;gap:8px;min-height:101px;margin:9px 0 4px;background:radial-gradient(ellipse at 20% 50%,#193f57,#071e2b 75%);border:1px solid #306483;border-radius:12px;overflow:hidden}
+.mini-module-render{height:101px;width:clamp(108px,10vw,150px);flex-shrink:0;position:relative}
+.mini-module-loading{font-size:.56rem;color:#83bed9;position:absolute;top:50%;width:100%;left:0;transform:translateY(-50%);text-align:center}
+.mini-module-side{display:flex;flex-direction:column;gap:5px}
+.mini-module-side>span{font-size:.67rem;color:#7ce1ff;letter-spacing:.13em}
+.mini-module-side small{font-size:.76rem;color:#bdd3df}
+#arquitectura .architecture-diagram .device-card{padding:clamp(17px,1.8vw,26px);min-height:350px}
+#arquitectura .device-card h3{margin:7px 0}
+#arquitectura .device-list{margin-top:11px}
+@media(min-width:840px) and (max-height:780px){
+ #componentes .hardware-layout{grid-template-columns:minmax(280px,.72fr) minmax(430px,1.28fr)}
+ #componentes .hardware-highlight{min-height:500px;padding:0}
+ .camera-stage{height:clamp(330px,49vh,510px)}
+ .camera-stage-controls{bottom:-4px}
+ .model-disclaimer{display:none}
+}
+@media(max-width:839px){
+ #componentes .hardware-layout{grid-template-columns:1fr!important}
+ #componentes .hardware-highlight{order:1;min-height:0;padding:0}
+ #componentes .hardware-details{order:2;grid-template-rows:none}
+ .camera-stage{height:clamp(320px,66vw,470px)}
+ .hardware-arch-mini{min-height:95px}
+ .camera-stage-controls{flex-direction:column;align-items:flex-end;position:relative;bottom:auto;margin-top:-4px}
+ .camera-actions{width:auto;justify-content:flex-end}
+ .camera-reset{padding:8px 10px}
+}
+@media(prefers-reduced-motion:reduce){.camera-live-dot{box-shadow:none}}
+</style><style id="v26-orbit-no-clipping">
+/* V26: el ESP32-CAM flota libre sobre el mismo fondo que las gafas de portada. */
+#componentes .hardware-layout{
+  display:grid!important;
+  grid-template-columns:minmax(290px,.72fr) minmax(510px,1.28fr)!important;
+  gap:clamp(18px,2.2vw,38px)!important;
+  align-items:center!important;
+}
+#componentes .hardware-highlight,
+#componentes .hardware-highlight.reveal,
+#componentes .camera-stage,
+#componentes #camera3dMain,
+#componentes #camera3dMain canvas{
+  background:transparent!important;
+  background-image:none!important;
+  border:0!important;
+  box-shadow:none!important;
+  filter:none!important;
+}
+#componentes .hardware-highlight{
+  order:2!important;
+  position:relative!important;
+  padding:0!important;
+  margin:0!important;
+  min-height:0!important;
+  overflow:visible!important;
+  border-radius:0!important;
+  display:block!important;
+}
+#componentes .hardware-highlight::before,
+#componentes .hardware-highlight::after,
+#componentes .camera-stage::before,
+#componentes .camera-stage::after{content:none!important;display:none!important}
+#componentes .hardware-highlight>.camera-stage{
+  width:100%!important;
+  height:clamp(420px,64vh,690px)!important;
+  position:relative!important;
+  overflow:visible!important;
+  border-radius:0!important;
+  isolation:auto!important;
+}
+#componentes .camera-webgl{
+  position:absolute!important;
+  inset:0!important;
+  width:100%!important;height:100%!important;
+  cursor:grab!important;
+  touch-action:none!important;
+  overflow:hidden!important; /* limita el canvas, no corta el objeto: la cámara lo encuadra */
+}
+#componentes .camera-webgl:active{cursor:grabbing!important}
+#componentes .camera-stage-controls{
+  position:absolute!important;
+  bottom:clamp(5px,1.5vh,18px)!important;
+  left:auto!important;right:0!important;
+  width:max-content!important;
+  display:flex!important;justify-content:flex-end!important;
+  pointer-events:none!important;
+  z-index:10!important;
+}
+#componentes .camera-stage-controls>span{display:none!important}
+#componentes .camera-actions{display:flex!important;gap:10px!important;pointer-events:auto!important}
+#componentes .camera-reset{
+  background:rgba(5,20,35,.74)!important;
+  backdrop-filter:blur(10px)!important;
+}
+#componentes .hardware-details{order:1!important;display:grid!important;grid-template-rows:repeat(3,minmax(0,1fr))!important;gap:clamp(11px,1.6vh,17px)!important}
+#componentes .hardware-details>div{min-height:clamp(105px,15vh,158px)!important;padding:clamp(14px,1.7vw,24px)!important}
+#componentes .hardware-footer{margin-top:5px!important}
+/* Asegura zona de título suficientemente despejada respecto de los controles fijos. */
+#componentes .slide-intro{margin-bottom:clamp(18px,2.7vh,28px)!important}
+@media(min-width:840px) and (max-height:770px){
+ #componentes .hardware-highlight>.camera-stage{height:clamp(345px,53vh,515px)!important}
+ #componentes .hardware-details>div{min-height:clamp(85px,12.5vh,120px)!important;padding:12px 17px!important}
+}
+@media(max-width:839px){
+ #componentes .hardware-layout{grid-template-columns:1fr!important;gap:22px!important}
+ #componentes .hardware-highlight{order:1!important}
+ #componentes .hardware-details{order:2!important;grid-template-rows:none!important}
+ #componentes .hardware-highlight>.camera-stage{height:clamp(320px,72vw,540px)!important}
+ #componentes .camera-stage-controls{bottom:0!important}
+ #componentes .camera-reset{font-size:.64rem!important;padding:7px 9px!important}
+}
+</style><style id="v27-orbit-float-clean">
+/* Escena 10: tres tarjetas compactas y consideraciones debajo (columna izquierda). */
+#componentes .hardware-layout{
+ display:grid!important;
+ grid-template-columns:minmax(0,.7fr) minmax(0,1.3fr)!important;
+ gap:clamp(22px,2.9vw,48px)!important;
+ align-items:center!important;
+}
+#componentes .hardware-details{
+ order:1!important;
+ display:flex!important;
+ flex-direction:column!important;
+ justify-content:center!important;
+ gap:clamp(10px,1.45vh,15px)!important;
+ align-self:center!important;
+ min-height:0!important;
+}
+#componentes .hardware-details>div:not(.hardware-footer){
+ min-height:clamp(98px,12vh,126px)!important;
+ height:auto!important;
+ padding:clamp(13px,1.6vw,20px)!important;
+ display:flex!important;align-items:center!important;
+ background:linear-gradient(105deg,#0c2033e8,#0b1d2de8)!important;
+ border-radius:16px!important;
+}
+#componentes .hardware-details h3{font-size:clamp(1.05rem,1.23vw,1.24rem)!important;line-height:1.28!important}
+#componentes .hardware-details p{font-size:clamp(.84rem,.97vw,1rem)!important;line-height:1.46!important}
+#componentes .hardware-details .hardware-considerations{
+ display:flex!important;
+ flex-direction:row!important;
+ flex-wrap:wrap!important;
+ gap:8px!important;
+ align-content:start!important;
+ align-items:center!important;
+ justify-content:flex-start!important;
+ margin:clamp(6px,1.2vh,13px) 0 0!important;
+ padding:0 2px!important;
+ min-height:0!important;height:auto!important;
+ border:0!important;border-radius:0!important;
+ background:transparent!important;box-shadow:none!important;
+ position:relative!important;
+ width:100%!important;
+}
+#componentes .hardware-considerations>b{
+ display:block!important;flex-basis:100%!important;
+ font-size:clamp(.6rem,.73vw,.73rem)!important;
+ line-height:1.4!important;
+ margin:0 0 1px!important;
+}
+#componentes .hardware-considerations>span{
+ padding:6px 11px!important;
+ font-size:clamp(.67rem,.78vw,.81rem)!important;
+ white-space:nowrap!important;
+}
+/* Placa 3D libre: mismo fondo oscuro que las gafas de portada. */
+#componentes .hardware-highlight{
+ order:2!important;display:block!important;min-width:0!important;
+ background:none!important;background-image:none!important;
+ border:0!important;box-shadow:none!important;overflow:visible!important;
+}
+#componentes .hardware-highlight>.camera-stage{
+ width:100%!important;
+ height:clamp(390px,62vh,660px)!important;
+ overflow:visible!important;background:none!important;
+ background-image:none!important;border:0!important;box-shadow:none!important;
+}
+#componentes #camera3dMain,#componentes #camera3dMain canvas{
+ background:none!important;background-image:none!important;
+ border:0!important;box-shadow:none!important;
+}
+#componentes .camera-stage-controls{display:none!important}
+#componentes .slide-intro{margin-bottom:clamp(21px,3vh,36px)!important}
+@media(min-width:840px) and (max-height:770px){
+ #componentes .slide-intro{margin-bottom:clamp(12px,2vh,19px)!important}
+ #componentes .hardware-highlight>.camera-stage{height:clamp(345px,52vh,530px)!important}
+ #componentes .hardware-details>div:not(.hardware-footer){min-height:clamp(88px,11vh,105px)!important;padding:12px 17px!important}
+ #componentes .hardware-details{gap:9px!important}
+ #componentes .hardware-details .hardware-considerations{margin-top:4px!important}
+}
+@media(max-width:839px){
+ #componentes .hardware-layout{grid-template-columns:1fr!important;gap:14px!important}
+ #componentes .hardware-highlight{order:1!important}
+ #componentes .hardware-details{order:2!important;gap:10px!important}
+ #componentes .hardware-highlight>.camera-stage{height:clamp(300px,75vw,480px)!important}
+ #componentes .hardware-details>div:not(.hardware-footer){min-height:88px!important}
+ #componentes .hardware-details .hardware-considerations{margin-top:8px!important}
+}
+</style><style id="v30-report-and-cleanup">
+/* V30 — Final: documento real, UI depurada, identidad UTP */
+header.topbar .brand{font-family:'Space Grotesk',sans-serif;font-weight:700;letter-spacing:.14em;font-size:1.12rem;color:#c8f2ff;text-shadow:0 0 26px rgba(59,212,255,.13)}
+.presenter-bar{display:none!important}
+#cierre.presentation-slide{padding-top:clamp(93px,10vh,118px)!important;padding-bottom:clamp(64px,7vh,90px)!important}
+#cierre .slide-intro{margin-bottom:clamp(12px,2vh,22px)}
+#cierre .conclusion-grid{gap:clamp(9px,1vw,16px)}
+#cierre .conclusion-grid>div{padding:clamp(13px,1.35vw,19px) clamp(14px,1.55vw,22px);min-height:155px;border-radius:16px;background:linear-gradient(150deg,#0b2135,#091728)}
+#cierre .conclusion-grid b{font-size:1.38rem}
+#cierre .conclusion-grid h3{font-size:clamp(.94rem,1.1vw,1.15rem);margin:7px 0 5px}
+#cierre .conclusion-grid p{font-size:clamp(.76rem,.85vw,.9rem);line-height:1.45;margin:0}
+#cierre .closing-thesis{margin:clamp(12px,1.7vh,20px) auto 0;font-size:clamp(.89rem,1vw,1.08rem);line-height:1.5}
+#cierre .closing-thanks{margin:clamp(12px,1.8vh,18px) 0 0;gap:1px}
+#cierre .closing-thanks strong{font-size:clamp(1.7rem,2.4vw,2.8rem);letter-spacing:.015em}
+#cierre .closing-thanks span{font-size:.97rem}
+.report-showcase{display:grid;grid-template-columns:118px minmax(0,1fr) auto;align-items:center;gap:clamp(18px,2vw,32px);width:100%;max-width:1120px;margin:clamp(14px,2vh,22px) auto 0;min-height:174px;padding:17px clamp(21px,2.4vw,33px);position:relative;isolation:isolate;overflow:hidden;border:1px solid #295773;border-radius:19px;background:linear-gradient(114deg,#102b45e8,#0a1b30e8 48%,#0a1728f4);box-shadow:0 20px 65px #01071046}
+.report-showcase:before{content:'';position:absolute;inset:0;z-index:-1;background:radial-gradient(ellipse at 8% 53%,rgba(62,175,234,.15),transparent 37%),linear-gradient(120deg,transparent 49%,#4c9ec313 50%,transparent 51%)}
+.report-cover-action{border:0;background:none;padding:0;margin:0;cursor:pointer;outline-offset:6px;align-self:center;justify-self:center;perspective:550px}
+.report-book{width:98px;height:135px;display:block;position:relative;border-radius:3px 6px 6px 3px;transform:rotate(-4deg) rotateY(-12deg);box-shadow:8px 12px 19px #010914ae,-5px 0 0 #99abc3,0 0 24px #60bbeb29;overflow:hidden;transition:transform .35s ease,box-shadow .35s ease;background:#fff}
+.report-book img{display:block;width:100%;height:100%;object-fit:cover;object-position:top}
+.report-book-gloss{position:absolute;inset:0;pointer-events:none;background:linear-gradient(100deg,rgba(19,38,61,.20),transparent 22%,transparent 73%,rgba(255,255,255,.35));box-shadow:inset 5px 0 4px rgba(25,38,54,.16)}
+.report-cover-action:hover .report-book,.report-cover-action:focus-visible .report-book{transform:rotate(-1deg) rotateY(0) translateY(-4px);box-shadow:6px 15px 23px #010914cb,0 0 25px #60bbeb38}
+.report-overline{display:flex;align-items:center;gap:8px;font:700 clamp(.62rem,.65vw,.76rem) 'Space Grotesk';letter-spacing:.14em;color:#70dfff}
+.report-live-dot{width:6px;height:6px;border-radius:50%;background:#5ee5ff;box-shadow:0 0 8px #44d0f9}
+.report-info h3{font:700 clamp(1.26rem,2vw,2rem) 'Space Grotesk';line-height:1.15;letter-spacing:-.045em;margin:9px 0 7px;color:#f0faff}
+.report-info h3 span{color:#83dbfb}
+.report-info p{font-size:clamp(.78rem,.86vw,.96rem);line-height:1.52;margin:0 0 12px;max-width:520px;color:#b4cfe0}
+.report-details{display:flex;gap:10px;flex-wrap:wrap}
+.report-details span{font:.66rem 'Space Grotesk';letter-spacing:.08em;color:#93cce1;padding:5px 9px;border:1px solid #244a64;border-radius:30px;background:#071829a8}
+.report-actions{display:flex;flex-direction:column;gap:10px;min-width:158px}
+.report-actions button,.report-actions a{display:flex;justify-content:center;align-items:center;gap:9px;min-height:42px;padding:10px 17px;font:600 .83rem 'DM Sans',system-ui,sans-serif;text-decoration:none;border-radius:12px;cursor:pointer;transition:transform .2s ease,background .2s ease,border-color .2s ease}
+.report-primary{border:1px solid #6bccee;background:linear-gradient(135deg,#b8f0ff,#69ccf3);color:#082338;box-shadow:0 6px 25px #40bce52a}
+.report-secondary{border:1px solid #34758e;background:#0a263c;color:#bceefa}
+.report-actions button:hover,.report-actions a:hover{transform:translateY(-2px)}
+.report-secondary:hover{background:#10344e}
+/* Modal de lectura del informe original: encima de toda la presentación */
+.report-modal[hidden]{display:none!important}
+.report-modal{position:fixed;inset:0;z-index:10000;display:grid;place-items:center;padding:clamp(8px,1.8vh,22px);isolation:isolate}
+.report-modal-backdrop{position:absolute;inset:0;background:#010710e8;backdrop-filter:blur(15px)}
+.report-dialog{position:relative;display:flex;flex-direction:column;width:min(1260px,97vw);height:min(940px,96dvh);border:1px solid #366881;border-radius:20px;overflow:hidden;background:#071423;box-shadow:0 38px 120px #000c}
+.report-dialog-header{display:flex;justify-content:space-between;align-items:center;gap:18px;padding:14px 20px;border-bottom:1px solid #28445b;background:linear-gradient(90deg,#0b263d,#081929)}
+.report-dialog-brand{display:flex;align-items:center;gap:15px;min-width:0}
+.report-dialog-monogram{font:800 1rem 'Space Grotesk';color:#072537;letter-spacing:.05em;padding:10px 12px;background:linear-gradient(130deg,#b3f0ff,#52bae5);border-radius:9px}
+.report-dialog-heading{display:flex;flex-direction:column;min-width:0;gap:2px}
+.report-dialog-heading small{font:700 .61rem 'Space Grotesk';letter-spacing:.17em;color:#74d7f3}
+.report-dialog-heading strong{font:600 clamp(.85rem,1vw,1.12rem) 'Space Grotesk';color:#e7f9ff;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.report-dialog-actions{display:flex;align-items:center;gap:9px}
+.report-page-count{font:.68rem 'Space Grotesk';color:#9bc5d9;margin-right:8px;white-space:nowrap}
+.report-dialog-actions a,.report-dialog-actions button{min-height:36px;display:inline-flex;align-items:center;justify-content:center;gap:7px;color:#dcf5ff;text-decoration:none;border:1px solid #2c6a84;background:#10304a;border-radius:9px;padding:8px 12px;font:600 .76rem 'DM Sans';cursor:pointer}
+.report-dialog-actions a:hover,.report-dialog-actions button:hover{background:#19465e}
+.report-dialog-actions .report-dialog-close{font-size:1.45rem;width:38px;padding:0 0 3px}
+.report-reader{flex:1;min-height:0;overflow:hidden;background:#d5dfe8}
+.report-reader iframe{display:block;border:0;width:100%;height:100%;background:#f2f5f7}
+.report-dialog-footer{display:flex;justify-content:space-between;gap:15px;padding:8px 20px;background:#071524;color:#90b8ce;font:.59rem 'Space Grotesk';letter-spacing:.12em}
+body.report-open{overflow:hidden!important}
+@media(max-width:820px){
+ #cierre.presentation-slide{padding:90px 0 95px!important}
+ #cierre .conclusion-grid{grid-template-columns:1fr!important}
+ #cierre .conclusion-grid>div{min-height:0!important;padding:14px!important}
+ .report-showcase{grid-template-columns:85px 1fr;gap:14px;padding:17px 15px;border-radius:16px}
+ .report-book{width:72px;height:99px}
+ .report-info h3{font-size:1.3rem;margin-top:5px}
+ .report-overline{font-size:.56rem}
+ .report-info p{font-size:.77rem}
+ .report-details{gap:5px}
+ .report-details span{font-size:.58rem;padding:4px 6px}
+ .report-actions{grid-column:1/-1;display:flex;flex-direction:row;justify-content:stretch;min-width:0}
+ .report-actions button,.report-actions a{flex:1;padding:10px 7px;font-size:.75rem}
+ .report-dialog{width:100%;height:98dvh;border-radius:13px}
+ .report-dialog-header{padding:10px;gap:7px}
+ .report-dialog-brand{gap:8px}
+ .report-dialog-heading strong{font-size:.75rem;max-width:160px}
+ .report-dialog-heading small{font-size:.5rem;letter-spacing:.05em}
+ .report-dialog-monogram{padding:8px;font-size:.72rem}
+ .report-dialog-actions{gap:4px}
+ .report-page-count,.report-dialog-new{display:none!important}
+ .report-dialog-actions a,.report-dialog-actions button{font-size:.68rem;padding:6px 8px;min-height:32px}
+ .report-dialog-footer{padding:7px 10px;font-size:.47rem;letter-spacing:0}
+}
+@media(min-width:840px) and (max-height:790px){
+ #cierre.presentation-slide{padding-top:82px!important;padding-bottom:70px!important}
+ #cierre .conclusion-grid>div{min-height:130px;padding:10px 14px}
+ #cierre .conclusion-grid h3{margin:3px 0}
+ #cierre .closing-thesis{margin-top:10px}
+ .report-showcase{min-height:149px;padding:10px 18px;margin-top:10px}
+ .report-book{width:76px;height:104px}
+ #cierre .closing-thanks{margin-top:9px}
+}
+@media print{.report-modal{display:none!important}.report-actions{display:none!important}}
+</style></head><body><div class="progress" id="progress"></div><div aria-live="polite" class="scene-heading" id="sceneHeading"><div class="scene-heading-kicker" id="sceneKicker">ESCENA 01</div><div class="scene-heading-title" id="sceneTitle">Portada</div></div><header class="topbar"><div aria-label="Universidad Tecnológica de Pereira" class="brand" title="Universidad Tecnológica de Pereira">UTP</div><nav class="nav"><a href="#problema">Problema</a><a href="#objetivos">Objetivos</a><a href="#referentes">Antecedentes</a><a href="#componentes">Componentes</a><a href="#arquitectura">Arquitectura</a><a href="#evaluacion">Evaluación</a><button aria-label="Pantalla completa" class="utility" id="fullBtn">⛶ Pantalla completa</button></nav></header>
+<main><section class="hero" id="inicio"><div class="scene" id="heroScene"><div class="scene-fallback" id="heroFallback"><svg fill="none" stroke="#61dfff" stroke-width="12" viewbox="0 0 600 300"><rect height="125" rx="53" width="190" x="60" y="90"></rect><rect height="125" rx="53" width="190" x="350" y="90"></rect><path d="M250 127Q300 85 350 127M60 115L4 95M540 115L596 95"></path></svg></div></div><div class="wrap"><div class="hero-copy"><div class="eyebrow">Electrónica digital · Proyecto académico</div><h1>EL FUTURO<br/>SE <span class="gradient">COMUNICA.</span></h1><p>Gafas inteligentes para el reconocimiento de un conjunto seleccionado de señas de la Lengua de Señas Colombiana mediante visión artificial.</p><a class="cta" href="#problema">Explorar la propuesta <span>↘</span></a><div class="presenter"><span class="presenter-label">EQUIPO DE INVESTIGACIÓN</span><span class="presenter-names">Juan Camilo Gallego <span>·</span> Manuela Guioth <span>·</span> Mallely Giraldo</span></div></div></div><div class="hero-scroll">DESLIZA PARA EXPLORAR</div><div class="hero-anim-label">MODELO 3D DE REFERENCIA · DESLIZA PARA EXPLORAR</div></section>
+<section class="section presentation-slide hero-companion" id="problema"><div class="wrap slide-container"><div class="slide-intro reveal"><div class="eyebrow">02 / Planteamiento del problema</div><h2>BARRERAS DE <span class="gradient">COMUNICACIÓN.</span></h2></div>
+<div class="scene-left-column reveal">
+<p class="deck">El desconocimiento de la Lengua de Señas Colombiana puede generar dificultades de comunicación en diferentes entornos:</p>
+<div class="environment-chips">
+<span><i data-lucide="graduation-cap"></i> Educativo</span><span><i data-lucide="store"></i> Comercial</span><span><i data-lucide="users"></i> Social</span>
+</div>
+<p class="micro-title">LA LSC ES UNA LENGUA CON ESTRUCTURA PROPIA</p>
+<div class="signal-stack">
+<div><b>01</b> Configuración y posición de las manos</div>
+<div><b>02</b> Orientación y movimiento</div>
+<div><b>03</b> Expresiones faciales y corporales</div>
+</div>
+<div class="issue-note"><strong>DESAFÍO</strong><p>Reconocer automáticamente las señas considerando sus características visuales y lingüísticas.</p></div>
+</div>
+<div aria-hidden="true" class="glasses-clear-space"></div>
+</div></section><section class="section presentation-slide hero-companion" id="justificacion"><div class="wrap slide-container"><div class="slide-intro reveal"><div class="eyebrow">03 / Justificación</div><h2>¿POR QUÉ DESARROLLAR <span class="gradient">ESTE PROYECTO?</span></h2></div>
+<div class="scene-left-column reveal">
+<div class="compact-stack">
+<article class="compact-card"><div class="tag">01 / IMPACTO SOCIAL</div><h3>Explorar nuevas posibilidades de apoyo</h3><p>Herramientas tecnológicas complementarias que contribuyan a reducir determinadas barreras de comunicación.</p></article>
+<article class="compact-card"><div class="tag">02 / INNOVACIÓN TECNOLÓGICA</div><h3>Hardware y visión artificial</h3><p>Integrar dispositivos compactos y de bajo costo con visión artificial e inteligencia artificial.</p></article>
+<article class="compact-card"><div class="tag">03 / APLICACIÓN ACADÉMICA</div><h3>Electrónica digital en contexto</h3><p>Aplicar microcontroladores, sistemas embebidos y comunicación inalámbrica.</p></article>
+</div>
+<p class="guardrail">Una herramienta de apoyo, <strong>no un reemplazo</strong> de los intérpretes profesionales ni del aprendizaje de la LSC.</p>
+</div><div aria-hidden="true" class="glasses-clear-space"></div>
+</div></section><section class="section presentation-slide hero-companion" id="objetivos"><div class="wrap slide-container"><div class="slide-intro reveal"><div class="eyebrow">04 / Objetivos</div><h2>¿QUÉ BUSCAMOS <span class="gradient">LOGRAR?</span></h2></div>
+<div class="scene-left-column reveal">
+<div class="general-goal"><span>OBJETIVO GENERAL</span><p>Diseñar e implementar un prototipo funcional capaz de reconocer un conjunto definido de señas de la Lengua de Señas Colombiana y convertir los resultados en texto o audio.</p><small>Implementación y validación contempladas para una fase posterior.</small></div>
+<div class="micro-title">OBJETIVOS ESPECÍFICOS</div>
+<div class="objective-list">
+<div><b>01</b><span>Investigar las características de las señas.</span></div>
+<div><b>02</b><span>Seleccionar un vocabulario inicial.</span></div>
+<div><b>03</b><span>Diseñar la arquitectura electrónica.</span></div>
+<div><b>04</b><span>Capturar y transmitir imágenes.</span></div>
+<div><b>05</b><span>Desarrollar el sistema de reconocimiento.</span></div>
+<div><b>06</b><span>Evaluar la precisión del prototipo.</span></div>
+</div>
+</div><div aria-hidden="true" class="glasses-clear-space"></div>
+</div></section><section class="section presentation-slide hero-companion" id="propuesta"><div class="wrap slide-container"><div class="slide-intro reveal"><div class="eyebrow">05 / Propuesta y alcance</div><h2>DE LA IDEA <span class="gradient">AL PROTOTIPO.</span></h2></div>
+<div class="scene-left-column reveal">
+<p class="deck">Una primera versión experimental, concebida como <strong>propuesta de diseño</strong>.</p>
+<div class="pipeline-list">
+<div><span>01</span><p>Reconocimiento inicial de <strong>5 a 10 señas</strong> o expresiones seleccionadas.</p></div>
+<div><span>02</span><p>Captura de imágenes mediante gafas equipadas con cámara.</p></div>
+<div><span>03</span><p>Transmisión inalámbrica hacia un computador.</p></div>
+<div><span>04</span><p>Reconocimiento mediante inteligencia artificial.</p></div>
+<div><span>05</span><p>Resultados en texto, con posibilidad de audio.</p></div>
+</div>
+<div class="condition-note"><b>CONDICIONES DE PRUEBA</b> Iluminación, distancia y visibilidad de las manos controladas.</div>
+<p class="guardrail">Alcance: demostrar la integración tecnológica, <strong>no desarrollar un traductor universal</strong>.</p>
+</div><div aria-hidden="true" class="glasses-clear-space"></div>
+</div></section><section class="section presentation-slide" id="referentes"><div class="wrap slide-container"><div class="slide-intro reveal"><div class="eyebrow">06 / Antecedentes internacionales</div><h2>TECNOLOGÍAS QUE INSPIRAN <span class="gradient">NUESTRA PROPUESTA.</span></h2></div>
+<div class="research-grid reveal">
+<article class="research-card"><div class="research-header"><strong>2014</strong><span>ESTADOS UNIDOS</span></div><h3>Signglasses</h3><div class="organization">Universidad Brigham Young</div><p>Gafas utilizadas para presentar contenido de interpretación en lengua de señas a estudiantes sordos.</p><div class="research-impact"><b>APORTE</b><span>Gafas como herramientas de accesibilidad.</span></div></article>
+<article class="research-card"><div class="research-header"><strong>2025</strong><span>ASL · IA</span></div><h3>SignGlass</h3><div class="organization">Cai y colaboradores</div><p>Sistema con múltiples cámaras e IA para analizar elementos de la Lengua de Señas Estadounidense.</p><div class="research-impact"><b>APORTE</b><span>Reconocimiento visual en dispositivos portátiles.</span></div></article>
+<article class="research-card"><div class="research-header"><strong>2024</strong><span>RASPBERRY PI</span></div><h3>Sign Language Translator</h3><div class="organization">CodersCafe</div><p>Sistema con Raspberry Pi y cámara para reconocer letras del alfabeto ASL y generar audio.</p><div class="research-impact"><b>APORTE</b><span>Captura, reconocimiento y respuesta auditiva.</span></div></article>
+</div>
+<div class="slide-footnote reveal">Los antecedentes corresponden a tecnologías distintas: Signglasses presenta interpretación; SignGlass y Sign Language Translator investigan reconocimiento de ASL, no de LSC.</div>
+</div></section><section class="section presentation-slide" id="nacionales"><div class="wrap slide-container"><div class="slide-intro reveal"><div class="eyebrow">07 / Antecedentes colombianos</div><h2>INVESTIGACIONES SOBRE <span class="gradient">LSC.</span></h2></div>
+<div class="research-grid colombia-grid reveal">
+<article class="research-card colombia-card"><div class="research-header"><strong>LSC70</strong><span>UNIVERSIDAD DEL CAUCA · 2025</span></div><h3>Datos para investigar señas colombianas</h3><div class="stat-strip"><div><b>47</b><span>señas</span></div><div><b>35.208</b><span>fotogramas</span></div><div><b>70</b><span>voluntarios</span></div></div><div class="research-impact"><b>APORTE</b><span>Conjunto de datos específico de la Lengua de Señas Colombiana.</span></div></article>
+<article class="research-card colombia-card"><div class="research-header"><strong>LSC-54</strong><span>UNIVERSIDAD DE LA SABANA</span></div><h3>Reconocimiento con puntos de referencia</h3><p>Estudio del reconocimiento de señas mediante el análisis de puntos de referencia de:</p><div class="feature-tags"><span>Manos</span><span>Rostro</span><span>Cuerpo</span></div><div class="research-impact"><b>APORTE</b><span>Análisis de posiciones y movimientos corporales para identificar señas.</span></div></article>
+</div>
+<div class="slide-footnote reveal">Son investigaciones y conjuntos de datos, no prototipos de gafas.</div>
+</div></section><section class="section presentation-slide" id="diferencia"><div class="wrap slide-container"><div class="slide-intro reveal"><div class="eyebrow">08 / Aprendizajes de los antecedentes</div><h2>¿QUÉ <span class="gradient">APRENDIMOS?</span></h2></div>
+<div class="lesson-grid reveal">
+<article class="lesson-card"><div class="lesson-count">01</div><h3>Tecnología portátil</h3><p>Las gafas inteligentes pueden capturar o presentar información.</p></article>
+<article class="lesson-card"><div class="lesson-count">02</div><h3>Reconocimiento visual</h3><p>Es necesario analizar configuraciones, posiciones y movimientos.</p></article>
+<article class="lesson-card"><div class="lesson-count">03</div><h3>Diversidad lingüística</h3><p>La Lengua de Señas Colombiana (LSC) y la estadounidense (ASL) son lenguas diferentes.</p></article>
+</div>
+<div class="takeaway reveal"><span>¿Y NUESTRA PROPUESTA?</span><p>Integrar estos conocimientos en un futuro prototipo experimental orientado a un vocabulario limitado de LSC.</p></div>
+</div></section><section class="section presentation-slide" id="funcionamiento"><div class="wrap slide-container"><div class="slide-intro reveal"><div class="eyebrow">09 / Visión artificial e inteligencia artificial</div><h2>¿CÓMO PUEDE UNA MÁQUINA <span class="gradient">RECONOCER UNA SEÑA?</span></h2></div>
+<div class="concept-pair reveal">
+<article class="concept-card"><div class="number">01 · VISIÓN ARTIFICIAL</div><h3>Observar características</h3><p>Captura y análisis de información visual para identificar rasgos relevantes de las manos y sus movimientos.</p></article>
+<article class="concept-card"><div class="number">02 · INTELIGENCIA ARTIFICIAL</div><h3>Relacionar patrones</h3><p>Modelos de clasificación relacionan las características identificadas con señas previamente definidas.</p></article>
+</div>
+<div class="flow-head reveal">PROCESO DE RECONOCIMIENTO PROPUESTO</div>
+<div class="recognition-flow reveal"><div><span>01</span><b>Captura de imágenes</b></div><i>→</i><div><span>02</span><b>Análisis visual</b></div><i>→</i><div><span>03</span><b>Clasificación</b></div><i>→</i><div><span>04</span><b>Resultado</b></div></div>
+<p class="slide-footnote reveal">El sistema solo podría reconocer las señas para las cuales haya sido preparado y evaluado. Las señas dinámicas pueden requerir secuencias de imágenes.</p>
+</div></section><section class="section presentation-slide" id="componentes"><div class="wrap slide-container"><div class="slide-intro reveal"><div class="eyebrow">10 / Componentes electrónicos</div><h2>EL HARDWARE DE <span class="gradient">NUESTRAS GAFAS.</span></h2></div>
+<div class="hardware-layout reveal">
+<div class="hardware-highlight"><div aria-label="Modelo 3D interactivo de placa de cámara ESP32-CAM, referencia de hardware" class="camera-stage" id="cameraStage" role="group">
+<div aria-label="Modelo 3D de placa electrónica. Arrastra en cualquier dirección para rotar 360 grados, usa la rueda para acercar o alejar." class="camera-webgl" id="camera3dMain" role="application" tabindex="0"><div class="camera-loader">PREPARANDO VISUALIZACIÓN 3D…</div></div>
+</div></div>
+<div class="hardware-details">
+<div><span class="hardware-number">01</span><section><h3>Cámara OV2640</h3><p>Captura las imágenes de las señas.</p></section></div>
+<div><span class="hardware-number">02</span><section><h3>Microcontrolador ESP32</h3><p>Coordina la adquisición y transmisión de imágenes.</p></section></div>
+<div><span class="hardware-number">03</span><section><h3>Conectividad Wi-Fi</h3><p>Envía la información visual hacia un computador.</p></section></div>
+<div class="hardware-footer reveal hardware-considerations"><b>CONSIDERACIONES TÉCNICAS</b><span>Memoria</span><span>Procesamiento</span><span>Alimentación</span><span>Tamaño</span></div></div>
+</div>
+</div></section><section class="section presentation-slide" id="arquitectura"><div class="wrap slide-container"><div class="slide-intro reveal"><div class="eyebrow">11 / Arquitectura del sistema</div><h2>DOS DISPOSITIVOS, <span class="gradient">UN SISTEMA.</span></h2></div>
+<div class="architecture-diagram reveal">
+<article class="device-card"><div class="device-step">01 / CAPTURA</div><div aria-label="Representación tridimensional del módulo de cámara, ilustrativa" class="hardware-arch-mini">
+<div class="mini-module-render" id="camera3dMini"><span class="mini-module-loading">MODELO 3D</span></div>
+<div class="mini-module-side"><span>COMPONENTE VISUAL</span><small>ESP32-CAM · referencia</small></div>
+</div><h3>Gafas inteligentes</h3><p>Cámara OV2640 y módulo ESP32-CAM previstos en el diseño.</p><div class="device-list"><span>Capturan imágenes</span><span>Transmiten la información</span></div></article>
+<div class="wifi-connector"><span>Wi-Fi</span><div class="wifi-line"><i></i><i></i><i></i></div><small>CONEXIÓN INALÁMBRICA</small></div>
+<article class="device-card"><div class="device-step">02 / PROCESAMIENTO</div><div class="device-glyph device-screen">▣</div><h3>Computador</h3><p>Recepción · Visión artificial · IA</p><div class="device-list"><span>Analiza y clasifica las señas</span><span>Presenta texto y audio opcional</span></div></article>
+</div>
+<div class="principle-note reveal"><strong>PRINCIPIO FUNDAMENTAL</strong><p>Las gafas capturan y transmiten; <span>el computador procesa y reconoce.</span></p></div>
+</div></section><section class="story presentation-story" data-design-status="propuesta-no-implementada" id="experiencia">
+<div class="story-stage"><div class="story-title">ESCENA 12 <span>· FUNCIONAMIENTO CONCEPTUAL</span></div>
+<div class="story-inner"><div class="story-copy">
+<div class="story-step active"><div class="eyebrow">01 / REALIZACIÓN DE LA SEÑA</div><h2>TODO EMPIEZA <span class="gradient">CON UNA SEÑA.</span></h2><p>Una persona realiza una seña del vocabulario seleccionado.</p></div>
+<div class="story-step"><div class="eyebrow">02 / CAPTURA</div><h2>LA CÁMARA <span class="gradient">OBSERVA.</span></h2><p>La cámara OV2640 registraría las imágenes de la seña.</p></div>
+<div class="story-step"><div class="eyebrow">03 / TRANSMISIÓN</div><h2>LAS IMÁGENES <span class="gradient">VIAJAN.</span></h2><p>El ESP32-CAM las transmitiría por Wi-Fi hacia un computador.</p></div>
+<div class="story-step"><div class="eyebrow">04 / PROCESAMIENTO</div><h2>EL COMPUTADOR <span class="gradient">ANALIZA.</span></h2><p>La visión artificial extraería las características visuales relevantes.</p></div>
+<div class="story-step"><div class="eyebrow">05 / RECONOCIMIENTO</div><h2>LA IA <span class="gradient">CLASIFICA.</span></h2><p>El modelo relacionaría las características identificadas con una seña definida.</p></div>
+<div class="story-step"><div class="eyebrow">06 / RESULTADO</div><h2>UNA SEÑA, <span class="gradient">UN RESULTADO.</span></h2><p>El sistema presentaría el texto correspondiente y contempla audio como complemento.</p></div>
+</div><div class="story-visual"><div id="story3d" style="width:100%;height:100%"></div><div class="chip-label" id="chipLabel">SEÑA REALIZADA</div></div></div>
+<div class="story-route">MANO <span>→</span> GAFAS <span>→</span> ESP32-CAM <span>→</span> COMPUTADOR <span>→</span> IA <span>→</span> RESULTADO</div>
+<div class="story-counter" id="storyCounter">01 / 06</div>
+<div class="story-design-label">SIMULACIÓN CONCEPTUAL · PROTOTIPO AÚN NO CONSTRUIDO</div>
+</div></section><section class="section presentation-slide" id="evaluacion"><div class="wrap slide-container"><div class="slide-intro reveal"><div class="eyebrow">13 / Pruebas y evaluación</div><h2>¿CÓMO EVALUAREMOS <span class="gradient">EL PROTOTIPO?</span></h2></div>
+<div class="validation-layout reveal">
+<div class="validation-vocabulary"><div class="tag">VOCABULARIO DE PRUEBA</div><div class="metric">5–10</div><h3>Señas previamente seleccionadas</h3><p>Las pruebas se realizarían tras construir e implementar el sistema.</p><div class="pill">Validación pendiente</div></div>
+<div class="validation-right"><div class="micro-title">INDICADORES DE EVALUACIÓN</div><div class="validation-metrics"><span>Reconocimientos correctos</span><span>Errores de clasificación</span><span>Precisión del reconocimiento</span></div><div class="micro-title second-title">FACTORES QUE ANALIZAREMOS</div><div class="test-factors"><span>Iluminación</span><span>Distancia</span><span>Visibilidad de las manos</span><span>Diferencias entre personas</span></div></div>
+</div>
+<div class="takeaway subtle-takeaway reveal"><span>OBJETIVO DE LAS PRUEBAS</span><p>Identificar el desempeño del sistema y sus oportunidades de mejora, sin anticipar resultados.</p></div>
+</div></section><section class="section presentation-slide" id="limitaciones"><div class="wrap slide-container"><div class="slide-intro reveal"><div class="eyebrow">14 / Limitaciones y viabilidad</div><h2>ALCANCES Y DESAFÍOS <span class="gradient">DEL PROTOTIPO.</span></h2></div>
+<div class="limits-grid reveal">
+<article class="limit-card"><div class="number">01 / VOCABULARIO LIMITADO</div><h3>Un conjunto reducido</h3><p>Reconocimiento de un número limitado de señas seleccionadas.</p></article>
+<article class="limit-card"><div class="number">02 / CONDICIONES AMBIENTALES</div><h3>El entorno influye</h3><p>Iluminación, distancia y visibilidad pueden afectar los resultados.</p></article>
+<article class="limit-card"><div class="number">03 / DEPENDENCIA TECNOLÓGICA</div><h3>Conexión y computador</h3><p>La propuesta requiere comunicación Wi-Fi y procesamiento externo.</p></article>
+<article class="limit-card"><div class="number">04 / AUTONOMÍA LIMITADA</div><h3>Aún no es independiente</h3><p>Las gafas todavía no constituyen un sistema autónomo.</p></article>
+</div>
+<div class="takeaway reveal"><span>VIABILIDAD</span><p>Evaluar la integración entre captura, transmisión y reconocimiento para orientar futuras mejoras.</p></div>
+</div></section><section class="section presentation-slide" id="cierre"><div class="wrap slide-container"><div class="slide-intro reveal"><div class="eyebrow">15 / Conclusiones</div><h2>TECNOLOGÍA CON <span class="gradient">PROPÓSITO.</span></h2></div>
+<div class="conclusion-grid reveal">
+<div><b>01</b><h3>Integración tecnológica</h3><p>Electrónica digital, comunicación inalámbrica, visión artificial e inteligencia artificial.</p></div>
+<div><b>02</b><h3>Reconocimiento experimental</h3><p>Propuesta de prototipo orientado a un conjunto limitado de señas de la LSC.</p></div>
+<div><b>03</b><h3>Proyección futura</h3><p>Mejorar la precisión, ampliar el vocabulario y explorar hardware más potente para disminuir la dependencia del computador.</p></div>
+</div>
+<p class="closing-thesis reveal">Una propuesta para explorar nuevas posibilidades tecnológicas de apoyo a la comunicación.</p>
+
+<div aria-label="Informe académico completo del proyecto" class="report-showcase reveal">
+<button aria-label="Abrir el informe académico completo en PDF" class="report-cover-action" id="openReportCover" type="button">
+<span class="report-book"><img alt="Portada original del informe de gafas inteligentes para LSC" loading="lazy" src="./assets/informe-portada.png"/><span aria-hidden="true" class="report-book-gloss"></span></span>
+</button>
+<div class="report-info">
+<div class="report-overline"><span class="report-live-dot"></span> DOCUMENTO ACADÉMICO · ELECTRÓNICA DIGITAL</div>
+<h3>Explora el <span>informe completo.</span></h3>
+<p>Diseño propuesto, antecedentes, arquitectura electrónica, condiciones técnicas y presupuesto del proyecto.</p>
+<div class="report-details"><span>34 PÁGINAS</span><span>PDF ORIGINAL</span><span>UTP · 2026</span></div>
+</div>
+<div class="report-actions">
+<button class="report-primary" id="openReportButton" type="button"><span aria-hidden="true">↗</span> Ver informe</button>
+<a class="report-secondary" download="Informe_Electronica_Digital_LSC.pdf" href="./assets/Informe_Electronica_Digital_LSC.pdf">Descargar PDF <span aria-hidden="true">↓</span></a>
+</div>
+</div>
+<div class="closing-thanks reveal"><strong>¡MUCHAS GRACIAS!</strong><span>¿Preguntas?</span></div>
+</div></section></main>
+
+<aside aria-label="Navegación por capítulos" class="chapter-dock" id="chapterDock"></aside>
+<div aria-label="Guion del expositor" class="presenter-notes" id="presenterNotes" role="region"><strong id="noteTitle">Guion de exposición</strong><p id="noteText"></p></div>
+
+<script>
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];const progress=$('#progress');const storyStageLabels=['SEÑA REALIZADA','CAPTURA CON GAFAS','TRANSMISIÓN CON ESP32-CAM','PROCESAMIENTO EN EL COMPUTADOR','RECONOCIMIENTO MEDIANTE IA','RESULTADO EN TEXTO / AUDIO'];function updateScroll(){let max=document.documentElement.scrollHeight-innerHeight;progress.style.width=(max?scrollY/max*100:0)+'%';let story=$('#experiencia'),r=story.getBoundingClientRect(),total=story.offsetHeight-innerHeight;let p=Math.max(0,Math.min(1,-r.top/Math.max(1,total)));window.storyProgress=p;let idx=Math.min(5,Math.floor(p*6));window.storyStepIndex=idx;$$('.story-step').forEach((el,i)=>el.classList.toggle('active',i===idx));$('#storyCounter').textContent=String(idx+1).padStart(2,'0')+' / 06';const chip=$('#chipLabel');if(chip){chip.textContent=storyStageLabels[idx];chip.classList.add('active')}}addEventListener('scroll',updateScroll,{passive:true});addEventListener('resize',updateScroll);updateScroll();const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target)}}),{threshold:.12});$$('.reveal').forEach(e=>io.observe(e));$('#fullBtn').addEventListener('click',()=>{if(!document.fullscreenElement)document.documentElement.requestFullscreen?.();else document.exitFullscreen?.()});document.addEventListener('keydown',e=>{if(['ArrowDown','PageDown'].includes(e.key)&&!['INPUT','TEXTAREA'].includes(document.activeElement.tagName)){e.preventDefault();scrollBy({top:innerHeight*.8,behavior:'smooth'})}if(['ArrowUp','PageUp'].includes(e.key)&&!['INPUT','TEXTAREA'].includes(document.activeElement.tagName)){e.preventDefault();scrollBy({top:-innerHeight*.8,behavior:'smooth'})}});$$('[data-sign]').forEach(btn=>btn.addEventListener('click',()=>{$('#demoHand').textContent=btn.dataset.hand;$('#demoState').textContent='SIMULACIÓN';$('#demoText').textContent='Ejemplo ilustrativo de clasificación de una seña previamente seleccionada:';$('#demoResult').textContent=btn.dataset.sign}));
+</script>
+<script>
+const chapterData=[["inicio","Portada","Presentar el proyecto como propuesta de diseño. No existe aún un prototipo construido."],["problema","Planteamiento del problema","Explicar los entornos educativo, comercial y social; configuración manual, movimiento y expresiones faciales y corporales."],["justificacion","Justificación","Defender impacto social, innovación tecnológica y aplicación académica. Es apoyo, no sustituto de intérpretes ni del aprendizaje de LSC."],["objetivos","Objetivos","Distinguir el objetivo general y los seis objetivos específicos. Implementación y pruebas están previstas para una fase posterior."],["propuesta","Propuesta y alcance","Describir cinco etapas propuestas, alcance de 5 a 10 señas y condiciones controladas. No se promete traducción universal."],["referentes","Antecedentes internacionales","Comparar Signglasses (2014), SignGlass (2025) y Sign Language Translator (2024); especificar qué aporta cada uno."],["nacionales","Antecedentes colombianos","Explicar LSC70 (47 señas, 35.208 fotogramas, 70 voluntarios) y LSC-54 (manos, rostro y cuerpo). Son investigaciones, no gafas."],["diferencia","Aprendizajes","Destacar tecnología portátil, reconocimiento visual y diferencia lingüística entre LSC y ASL."],["funcionamiento","Visión artificial e IA","Distinguir extracción de características visuales y clasificación mediante IA. Solo se reconocerían señas preparadas y evaluadas."],["componentes","Componentes electrónicos","Explicar las funciones de ESP32-CAM, cámara OV2640, microcontrolador ESP32 y conectividad Wi-Fi; restricciones de alimentación y memoria."],["arquitectura","Arquitectura del sistema","Enfatizar que las gafas capturan y transmiten, mientras el computador recibe, procesa y ejecuta la IA."],["experiencia","Funcionamiento paso a paso","Recorrer los seis momentos de esta simulación: seña, captura, Wi-Fi, análisis, clasificación y resultado. No es un prototipo operando."],["evaluacion","Pruebas y evaluación","Describir pruebas futuras con 5 a 10 señas, precisión, aciertos, errores y condiciones visuales; no presentar resultados inventados."],["limitaciones","Limitaciones y viabilidad","Recordar las cuatro limitaciones: vocabulario, entorno, Wi-Fi/computador y autonomía. La viabilidad será evaluada."],["cierre","Conclusiones","Cerrar con integración tecnológica, alcance experimental y mejoras futuras; agradecer y abrir preguntas."]];
+let chapterIndex=0;
+const dock=document.getElementById('chapterDock');
+chapterData.forEach(([id,name],i)=>{
+ const b=document.createElement('button');b.className='chapter-dot';b.type='button';b.title=name;b.setAttribute('aria-label','Ir a '+name);
+ b.addEventListener('click',()=>jumpChapter(i));dock.appendChild(b);
+});
+function jumpChapter(i){chapterIndex=Math.max(0,Math.min(chapterData.length-1,i));document.getElementById(chapterData[chapterIndex][0]).scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});syncChapter();}
+function syncChapter(){
+ const threshold=innerHeight*.38;let current=0;
+ chapterData.forEach(([id],i)=>{if(document.getElementById(id).getBoundingClientRect().top<=threshold)current=i});
+ chapterIndex=current;
+ const n=String(current+1).padStart(2,'0');
+
+ document.getElementById('sceneKicker').textContent='ESCENA '+n;
+ document.getElementById('sceneTitle').textContent=chapterData[current][1];
+ document.getElementById('noteTitle').textContent='Guion · '+chapterData[current][1];
+ document.getElementById('noteText').textContent=chapterData[current][2];
+ [...dock.children].forEach((b,i)=>b.classList.toggle('active',i===current));
+}
+document.addEventListener('keydown',e=>{
+ if(['INPUT','TEXTAREA','BUTTON'].includes(document.activeElement.tagName)||e.altKey||e.ctrlKey||e.metaKey)return;
+ if(e.key==='ArrowRight'){e.preventDefault();jumpChapter(chapterIndex+1)}
+ if(e.key==='ArrowLeft'){e.preventDefault();jumpChapter(chapterIndex-1)}
+ if(e.key.toLowerCase()==='n')document.getElementById('presenterNotes').classList.toggle('open');
+ if(e.key.toLowerCase()==='f'){if(!document.fullscreenElement)document.documentElement.requestFullscreen?.();else document.exitFullscreen?.()}
+});
+addEventListener('scroll',syncChapter,{passive:true});syncChapter();
+</script>
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.1/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.1/examples/jsm/"}}</script><script type="module">
+// Geometría 3D conceptual generada con Three.js. Requiere conexión para cargar el módulo CDN.
+try{const THREE=await import('https://cdn.jsdelivr.net/npm/three@0.160.1/build/three.module.js');const {GLTFLoader}=await import('three/addons/loaders/GLTFLoader.js');let scenes=[];let heroModelLoaded=false;let storyPipeline=null;function build(target,hero=false){let scene=new THREE.Scene();let camera=new THREE.PerspectiveCamera(hero?43:37,1,.1,100);camera.position.set(0,.15,8.5);let renderer=new THREE.WebGLRenderer({alpha:true,antialias:true,powerPreference:'high-performance'});renderer.setPixelRatio(Math.min(devicePixelRatio,2));renderer.outputColorSpace=THREE.SRGBColorSpace;target.appendChild(renderer.domElement);scene.add(new THREE.AmbientLight(0x88cfff,1.35));let l=new THREE.PointLight(0x41d9ff,70);l.position.set(-3,4,5);scene.add(l);let l2=new THREE.PointLight(0x4264ff,60);l2.position.set(4,-2,-2);scene.add(l2);const frame=new THREE.MeshStandardMaterial({color:0x102334,metalness:.85,roughness:.24});const edge=new THREE.MeshStandardMaterial({color:0x64ddf6,metalness:.68,roughness:.22,emissive:0x12678a,emissiveIntensity:.38});const lens=new THREE.MeshPhysicalMaterial({color:0x164d73,metalness:.24,roughness:.12,transparent:true,opacity:.55,side:THREE.DoubleSide});let root=new THREE.Group();scene.add(root);let parts=[];function tube(points,r,mat,group=root){let curve=new THREE.CatmullRomCurve3(points.map(p=>new THREE.Vector3(...p)));let mesh=new THREE.Mesh(new THREE.TubeGeometry(curve,64,r,9,false),mat);group.add(mesh);return mesh}function lensShape(cx){let shape=new THREE.Shape();shape.moveTo(cx-.91,.40);shape.bezierCurveTo(cx-1.18,.35,cx-1.17,-.46,cx-.77,-.55);shape.bezierCurveTo(cx-.2,-.65,cx+.75,-.62,cx+.89,-.27);shape.bezierCurveTo(cx+1.03,.13,cx+.95,.42,cx+.57,.47);shape.bezierCurveTo(cx+.13,.52,cx-.54,.5,cx-.91,.40);let geo=new THREE.ShapeGeometry(shape,28);let m=new THREE.Mesh(geo,lens);m.position.z=.04;root.add(m);return m}for(let x of [-1.12,1.12]){lensShape(x);let g=new THREE.Group();root.add(g);tube([[x-.89,.4,.1],[x-.98,.05,.1],[x-.82,-.5,.1],[x,-.61,.1],[x+.77,-.5,.1],[x+.94,.03,.1],[x+.73,.44,.1],[x,.49,.1],[x-.89,.4,.1]],.063,frame,g);tube([[x-.87,.38,.15],[x,.47,.15],[x+.74,.42,.15]],.022,edge,g);parts.push(g)}tube([[-.25,.33,.05],[0,.45,-.05],[.25,.33,.05]],.055,frame);tube([[-2.06,.28,0],[-2.75,.42,-.7],[-3.05,.41,-1.3]],.085,frame);tube([[2.06,.28,0],[2.75,.42,-.7],[3.05,.41,-1.3]],.085,frame);let boardGroup=new THREE.Group();boardGroup.position.set(-2.12,.33,.03);root.add(boardGroup);let pcb=new THREE.Mesh(new THREE.BoxGeometry(.43,.32,.15),new THREE.MeshStandardMaterial({color:0x126b5d,metalness:.35,roughness:.4}));boardGroup.add(pcb);let sensor=new THREE.Mesh(new THREE.CylinderGeometry(.105,.105,.12,24),frame);sensor.rotation.x=Math.PI/2;sensor.position.z=.15;boardGroup.add(sensor);let sensorGlass=new THREE.Mesh(new THREE.CircleGeometry(.057,24),edge);sensorGlass.position.z=.22;boardGroup.add(sensorGlass);let chipGroup=new THREE.Group();chipGroup.position.set(2.35,.3,-.12);root.add(chipGroup);let chip=new THREE.Mesh(new THREE.BoxGeometry(.56,.38,.12),new THREE.MeshStandardMaterial({color:0x0e5b58,metalness:.5,roughness:.32}));chipGroup.add(chip);let cpu=new THREE.Mesh(new THREE.BoxGeometry(.28,.22,.04),frame);cpu.position.z=.09;chipGroup.add(cpu);let particles=new THREE.Group();scene.add(particles);for(let i=0;i<28;i++){let dot=new THREE.Mesh(new THREE.SphereGeometry(.013,6,6),edge);particles.add(dot)}function resize(){let w=target.clientWidth,h=target.clientHeight;if(!w||!h)return;renderer.setSize(w,h,false);camera.aspect=w/h;camera.updateProjectionMatrix()}resize();new ResizeObserver(resize).observe(target);scenes.push({renderer,scene,camera,root,boardGroup,chipGroup,particles,hero})}
+build($('#heroScene'),true);$('#heroFallback').style.display='none';
+const hero3d=$('#heroScene');document.body.appendChild(hero3d);hero3d.classList.add('hero-floating');
+async function createStoryPipeline(target){
+ const scene=new THREE.Scene();
+ const camera=new THREE.PerspectiveCamera(34,1,.1,100);
+ camera.position.set(0,.15,8.9);
+ const renderer=new THREE.WebGLRenderer({alpha:true,antialias:true,powerPreference:'high-performance'});
+ renderer.setPixelRatio(Math.min(devicePixelRatio,2));
+ renderer.outputColorSpace=THREE.SRGBColorSpace;
+ target.appendChild(renderer.domElement);
+ scene.add(new THREE.AmbientLight(0x88d9ff,1.7));
+ const hemi=new THREE.HemisphereLight(0xdaf7ff,0x18344f,2.8);scene.add(hemi);
+ const key=new THREE.DirectionalLight(0xffffff,3.8);key.position.set(2.8,3.9,8.2);scene.add(key);
+ const fill=new THREE.DirectionalLight(0x58d8ff,2.2);fill.position.set(-5,1.5,-3.2);scene.add(fill);
+ const rim=new THREE.DirectionalLight(0x3f67ff,1.9);rim.position.set(4,-2.3,2.5);scene.add(rim);
+ const root=new THREE.Group();scene.add(root);
+ const ringGroup=new THREE.Group();scene.add(ringGroup);
+ const ringMat=new THREE.MeshBasicMaterial({color:0x4fd7ff,transparent:true,opacity:.18,side:THREE.DoubleSide});
+ const ring1=new THREE.Mesh(new THREE.RingGeometry(2.4,2.44,96),ringMat.clone());
+ ring1.position.set(0,.02,-1.7);
+ ringGroup.add(ring1);
+ const ring2=new THREE.Mesh(new THREE.RingGeometry(3.05,3.09,96),ringMat.clone());
+ ring2.position.set(0,.02,-2.15);ring2.material.opacity=.08;
+ ringGroup.add(ring2);
+ const loader=new GLTFLoader();
+ const assetsMeta=[
+  {key:'hand',url:'./assets/story_hand.glb',size:4.15,baseY:.10,baseRotX:-.20,baseRotY:.95,spin:.64,drift:.15},
+  {key:'glasses',url:'./assets/story_glasses.glb',size:4.35,baseY:.03,baseRotX:.10,baseRotY:-.28,spin:.58,drift:.14},
+  {key:'processor',url:'./assets/story_processor.glb',size:4.20,baseY:-.02,baseRotX:.22,baseRotY:.82,spin:.53,drift:.12},
+  {key:'laptop',url:'./assets/story_laptop.glb',size:4.85,baseY:-.08,baseRotX:-.08,baseRotY:.48,spin:.38,drift:.11},
+  {key:'ai',url:'./assets/story_ai.glb',size:4.75,baseY:-.02,baseRotX:.12,baseRotY:.58,spin:.42,drift:.10},
+  {key:'result',url:'./assets/story_result.glb',size:4.55,baseY:.00,baseRotX:.05,baseRotY:.32,spin:.34,drift:.09}
+ ];
+ function prepareAsset(gltf,meta){
+  const model=gltf.scene;
+  const group=new THREE.Group();
+  const pivot=new THREE.Group();
+  model.updateMatrixWorld(true);
+  const bounds=new THREE.Box3().setFromObject(model);
+  const center=bounds.getCenter(new THREE.Vector3());
+  const size=bounds.getSize(new THREE.Vector3());
+  model.position.sub(center);
+  pivot.add(model);
+  const scale=meta.size/Math.max(size.x,size.y,size.z,0.001);
+  pivot.scale.setScalar(scale);
+  group.add(pivot);
+  const materials=[];
+  model.traverse(obj=>{
+   if(!obj.isMesh)return;
+   obj.castShadow=true;
+   obj.receiveShadow=true;
+   const mats=Array.isArray(obj.material)?obj.material:[obj.material];
+   mats.forEach(mat=>{
+    if(!mat||materials.includes(mat))return;
+    mat.transparent=true;
+    mat.depthWrite=false;
+    mat.userData.baseOpacity=mat.opacity ?? 1;
+    materials.push(mat);
+   });
+  });
+  root.add(group);
+  return {...meta,group,pivot,materials};
+ }
+ function resize(){
+  const w=target.clientWidth,h=target.clientHeight;
+  if(!w||!h)return;
+  renderer.setSize(w,h,false);
+  camera.aspect=w/h;
+  camera.updateProjectionMatrix();
+ }
+ resize();
+ new ResizeObserver(resize).observe(target);
+ const loaded=await Promise.all(assetsMeta.map(meta=>loader.loadAsync(meta.url).then(gltf=>prepareAsset(gltf,meta))));
+ loaded.forEach(entry=>{entry.group.visible=false;entry.weight=0;});
+ return {scene,camera,renderer,entries:loaded,ringGroup,ring1,ring2,visualIndex:0};
+}
+storyPipeline=await createStoryPipeline($('#story3d'));
+
+// Sustituir exclusivamente el modelo de portada por el GLB adjunto.
+// Se conserva el modelo conceptual del despiece para la sección técnica.
+try {
+ const loader=new GLTFLoader();
+ loader.load('./assets/glasses.glb',(gltf)=>{
+   const hero=scenes.find(s=>s.hero);
+   if(!hero)return;
+   const model=gltf.scene;
+   // La textura de Sketchfab tiene un canal emisivo blanco intenso: sustituir
+   // por un acabado de montura negra y reflejos controlados.
+   model.traverse(obj=>{
+     if(!obj.isMesh)return;
+     obj.material=new THREE.MeshPhysicalMaterial({
+       color:0x283f52,metalness:.28,roughness:.32,
+       clearcoat:.72,clearcoatRoughness:.22,side:THREE.DoubleSide
+     });
+     obj.castShadow=true;
+   });
+   model.updateMatrixWorld(true);
+   const bounds=new THREE.Box3().setFromObject(model);
+   const center=bounds.getCenter(new THREE.Vector3());
+   const size=bounds.getSize(new THREE.Vector3());
+   const scale=5.10/Math.max(size.x,size.y,size.z);
+   // En este GLB, el frente de las gafas ya está orientado hacia la cámara.
+   // La rotación X de la versión anterior las mostraba de canto.
+   const centered=new THREE.Group();
+   model.position.sub(center);
+   centered.add(model);
+   const normalized=new THREE.Group();
+   normalized.add(centered);
+   normalized.scale.setScalar(scale);
+   // Giro base: perspectiva tres cuartos, con movimiento progresivo durante el scroll.
+   hero.root.clear();
+   hero.root.add(normalized);
+   hero.frameMeshes=[];
+   hero.root.traverse(part=>{
+     if(!part.isMesh||!part.geometry)return;
+     part.geometry.computeBoundingBox();
+     const bounds=part.geometry.boundingBox;
+     const corners=[];
+     for(const x of [bounds.min.x,bounds.max.x])
+       for(const y of [bounds.min.y,bounds.max.y])
+         for(const z of [bounds.min.z,bounds.max.z])
+           corners.push(new THREE.Vector3(x,y,z));
+     hero.frameMeshes.push({part,corners});
+   });
+
+   hero.scene.add(new THREE.HemisphereLight(0xe6f9ff,0x56758d,2.9));
+   const key=new THREE.DirectionalLight(0xffffff,4.2);key.position.set(-2,3,8);hero.scene.add(key);
+   const fill=new THREE.DirectionalLight(0xc4eaff,2.5);fill.position.set(5,1,6);hero.scene.add(fill);
+   const rim=new THREE.DirectionalLight(0x1e89ff,2.7);rim.position.set(4,-1,-3);hero.scene.add(rim);
+   hero.boardGroup=null;
+   hero.chipGroup=null;
+   hero.particles.visible=false;
+   heroModelLoaded=true;
+   const label=document.querySelector('.hero-anim-label');
+   if(label)label.textContent='MODELO 3D IMPORTADO · DESLIZA PARA EXPLORAR';
+ },undefined,(error)=>{console.error('Error al cargar assets/glasses.glb',error);document.querySelector('.hero-anim-label').textContent='ERROR DE CARGA DEL MODELO 3D · REVISA LA CONSOLA';});
+} catch(error){console.error('Error al importar GLTFLoader',error);document.querySelector('.hero-anim-label').textContent='ERROR DEL VISOR 3D · REVISA LA CONSOLA'}
+
+// Recorrido 3D dirigido por las posiciones reales de las escenas (no por múltiplos fijos de 100vh).
+const journeyIds=['inicio','problema','justificacion','objetivos','propuesta','referentes','nacionales'];
+const journeyKeys=[
+  {u:.692,v:.525,yaw:-.20,pitch:.04,roll:-.02,size:1.30}, // portada: más centrada y más grande
+  {u:.755,v:.48,yaw:.15,pitch:-.045,roll:.012,size:1.00}, // problema: giro hacia el observador
+  {u:.792,v:.47,yaw:-.48,pitch:.045,roll:-.027,size:.94}, // justificación: desplaza a la derecha
+  {u:.735,v:.52,yaw:.37,pitch:-.042,roll:.018,size:1.025},// objetivos: regreso hacia el centro
+  {u:.778,v:.46,yaw:-.30,pitch:.032,roll:-.022,size:1.035},// propuesta: gira otra vez
+  {u:.84,v:.45,yaw:.62,pitch:.02,roll:.025,size:.86},     // salida después de escena 5
+  {u:.89,v:.45,yaw:.85,pitch:0,roll:.03,size:.77}
+];
+const mix=(a,b,t)=>a+(b-a)*t;
+const clamp=(value,min,max)=>Math.max(min,Math.min(max,value));
+const ease=t=>t*t*(3-2*t);
+let journeyAnchors=[];
+let lastJourneyMeasure=0;
+function measureJourney(){
+  const y=window.scrollY,view=window.innerHeight;
+  journeyAnchors=journeyIds.map((id,i)=>{
+    const el=document.getElementById(id);
+    if(!el)return i*view;
+    const r=el.getBoundingClientRect();
+    return Math.max(0,r.top+y+(r.height-view)*.5);
+  });
+  journeyAnchors[0]=0;
+}
+measureJourney();
+window.addEventListener('resize',measureJourney,{passive:true});
+document.fonts?.ready?.then(measureJourney);
+// Bounding projection of the actual model meshes; not a guessed size.
+// This stays correct even when the GLB rotates or the browser enters fullscreen.
+const projectedPoint=new THREE.Vector3();
+function projectedBounds(s){
+  if(!s.frameMeshes?.length)return null;
+  s.root.updateWorldMatrix(true,true);
+  let left=Infinity,right=-Infinity;
+  for(const {part,corners} of s.frameMeshes){
+    for(const v of corners){
+      projectedPoint.copy(v).applyMatrix4(part.matrixWorld).project(s.camera);
+      left=Math.min(left,(projectedPoint.x+1)/2);
+      right=Math.max(right,(projectedPoint.x+1)/2);
+    }
+  }
+  return {left,right,width:right-left,center:(left+right)/2};
+}
+let currentPose={...journeyKeys[0]};
+let lastTick=performance.now();
+const start=performance.now();
+function poseAt(y){
+  if(journeyAnchors.length!==journeyIds.length)measureJourney();
+  let index=0;
+  while(index<journeyAnchors.length-2 && y>=journeyAnchors[index+1])index++;
+  const a=journeyAnchors[index],b=journeyAnchors[index+1];
+  const t=ease(clamp((y-a)/Math.max(1,b-a),0,1));
+  const from=journeyKeys[index],to=journeyKeys[index+1];
+  const value={};
+  Object.keys(from).forEach(key=>value[key]=mix(from[key],to[key],t));
+  return value;
+}
+function tick(now){
+ const t=(now-start)/1000;
+ const dt=Math.min(.08,Math.max(0,(now-lastTick)/1000));
+ lastTick=now;
+ if(now-lastJourneyMeasure>900){measureJourney();lastJourneyMeasure=now;}
+ for(const s of scenes){
+  if(s.hero){
+    const wanted=poseAt(window.scrollY);
+    const smoothing=1-Math.exp(-dt*9);
+    for(const k of Object.keys(wanted)){currentPose[k]=mix(currentPose[k],wanted[k],smoothing)}
+    // Mantener el GLB durante las escenas 1–5. La desaparición ocurre al entrar en Alcance.
+    const a=journeyAnchors[4]||innerHeight*4;
+    const b=journeyAnchors[5]||innerHeight*5;
+    const c=journeyAnchors[6]||innerHeight*6;
+    const fadeBegin=mix(a,b,.62);
+    const fadeEnd=mix(b,c,.23);
+    const fade=ease(clamp((scrollY-fadeBegin)/Math.max(1,fadeEnd-fadeBegin),0,1));
+    hero3d.style.opacity=String(1-fade);
+    hero3d.style.visibility=fade>=.999?'hidden':'visible';
+    // Escenario WebGL a tamaño completo; se desplaza el objeto DENTRO de la cámara.
+    // Esto evita que los bordes se recorten en fullscreen 16:9 u otras resoluciones.
+    hero3d.style.transform='none';
+    const cameraDistance=s.camera.position.z;
+    const visibleHeight=2*cameraDistance*Math.tan(s.camera.fov*Math.PI/360);
+    const visibleWidth=visibleHeight*s.camera.aspect;
+    const mobile=innerWidth<840;
+    // Preserve the cinematic rotation from the user's preferred version.
+    s.root.rotation.y=currentPose.yaw+Math.sin(t*.46)*.035;
+    s.root.rotation.x=currentPose.pitch+Math.sin(t*.49)*.018;
+    s.root.rotation.z=currentPose.roll+Math.sin(t*.39)*.012;
+    const introEndY=journeyAnchors[1]||innerHeight;
+    const introY=ease(clamp(scrollY/Math.max(1,introEndY),0,1));
+    const portadaV=mobile?.31:.505;
+    const blendedV=mix(portadaV,currentPose.v,introY);
+    s.root.position.set(0,(.5-blendedV)*visibleHeight+Math.sin(t*1.02)*.085,0);
+    s.root.scale.setScalar(currentPose.size);
+    // A safe right-side display region protects the headline and the chapter dots.
+    // The model is fitted using its ACTUAL rotated silhouette bounds.
+    const introEnd=journeyAnchors[1]||innerHeight;
+    const introProgress=ease(clamp(scrollY/Math.max(1,introEnd),0,1));
+    const regularSafeLeft=mobile?.08:.485;
+    const regularSafeRight=mobile?.92:.934;
+    // En portada damos más protagonismo: más al centro y con una ventana útil más amplia.
+    const heroSafeLeft=mobile?.05:.41;
+    const heroSafeRight=mobile?.95:.905;
+    const safeLeft=mix(heroSafeLeft,regularSafeLeft,introProgress);
+    const safeRight=mix(heroSafeRight,regularSafeRight,introProgress);
+    const maxSpan=safeRight-safeLeft;
+    let bounds=projectedBounds(s);
+    if(bounds){
+      const fit=Math.min(1,maxSpan*.97/Math.max(bounds.width,.00001));
+      s.root.scale.multiplyScalar(fit);
+      bounds=projectedBounds(s);
+      const centerMin=safeLeft+bounds.width/2;
+      const centerMax=safeRight-bounds.width/2;
+      const portadaCenter=mobile?.5:.685;
+      const targetCenterDesired=mix(portadaCenter,currentPose.u,introProgress);
+      const targetCenter=mobile?.5:Math.max(centerMin,Math.min(centerMax,targetCenterDesired));
+      s.root.position.x=(targetCenter-bounds.center)*visibleWidth;
+      // Refine placement with the same true projected mesh bounds.
+      bounds=projectedBounds(s);
+      if(bounds){
+        const correction=(bounds.right>safeRight?safeRight-bounds.right:0)
+          +(bounds.left<safeLeft?safeLeft-bounds.left:0);
+        s.root.position.x+=correction*visibleWidth;
+      }
+    }else{
+      // Fallback for conceptual geometry while the real GLB loads.
+      s.root.scale.multiplyScalar(mobile?.72:.79);
+      s.root.position.x=(currentPose.u-.5)*visibleWidth*.76;
+    }
+    s.particles.visible=false;
+  }else{
+    const p=window.storyProgress||0;
+    s.root.rotation.y=-.45+p*1.3+Math.sin(t*.3)*.07;
+    s.root.rotation.x=Math.sin(t*.4)*.045;
+    s.root.scale.setScalar(Math.min(1.1,.84+p*.3));
+    s.root.position.y=Math.sin(t*.7)*.05;
+    const separation=clamp((p-.22)/.26,0,1);
+    s.boardGroup.position.x=-2.12-separation*.75;
+    s.boardGroup.position.y=.33+separation*.6;
+    s.chipGroup.position.x=2.35+separation*.7;
+    s.chipGroup.position.y=.3+separation*.6;
+    s.particles.visible=p>.52;
+    for(let i=0;i<s.particles.children.length;i++){
+      const d=s.particles.children[i],q=(i/28+t*.2)%1;
+      d.position.set(-2.5+q*5,Math.sin(q*9+i)*.5,Math.sin(i*2.2)*.3);
+    }
+  }
+  s.renderer.render(s.scene,s.camera);
+ }
+
+ if(storyPipeline){
+  const visualMap=[0,1,2,3,4,5];
+  const storyIndex=visualMap[Math.max(0,Math.min(5,window.storyStepIndex??0))] ?? 0;
+  storyPipeline.visualIndex=mix(storyPipeline.visualIndex,storyIndex,1-Math.exp(-dt*4.6));
+  const reducedMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const pulseBase=.5+.5*Math.sin(t*1.1);
+  storyPipeline.entries.forEach((entry,index)=>{
+   const distance=Math.abs(storyPipeline.visualIndex-index);
+   let weight=Math.max(0,1-distance);
+   weight=ease(weight);
+   entry.weight=weight;
+   entry.group.visible=weight>.02;
+   const sway=reducedMotion?0:Math.sin(t*(0.8+index*.18)+index)*entry.drift;
+   const bob=reducedMotion?0:Math.sin(t*(1.35+index*.22)+index*.7)*entry.drift;
+   entry.group.position.set((index-storyPipeline.visualIndex)*.85,entry.baseY+bob,-distance*1.45);
+   entry.group.rotation.x=entry.baseRotX+(reducedMotion?0:Math.sin(t*.45+index)*.08)*weight;
+   entry.group.rotation.y=entry.baseRotY+(reducedMotion?0:t*entry.spin+sway)*weight;
+   entry.group.rotation.z=(reducedMotion?0:Math.sin(t*.52+index*1.3)*.08)*weight;
+   const scaleBoost=.92+weight*.14+pulseBase*.02;
+   entry.group.scale.setScalar(scaleBoost);
+   entry.materials.forEach(mat=>mat.opacity=(mat.userData.baseOpacity??1)*weight);
+  });
+  storyPipeline.ringGroup.rotation.z=t*.08;
+  storyPipeline.ring1.material.opacity=.13+.05*Math.sin(t*.9);
+  storyPipeline.ring2.material.opacity=.07+.03*Math.cos(t*.7);
+  storyPipeline.renderer.render(storyPipeline.scene,storyPipeline.camera);
+ }
+ requestAnimationFrame(tick);
+}
+requestAnimationFrame(tick);
+
+}catch(e){console.info('Vista 3D no disponible; la presentación mantiene el contenido y el diagrama alternativo.',e);let target=$('#story3d');if(target)target.innerHTML='<div style="display:grid;place-items:center;height:100%;font:700 clamp(2.6rem,5vw,4.5rem) Space Grotesk,sans-serif;color:#bdefff;text-align:center;gap:18px"><div style="font-size:clamp(5rem,14vw,9rem);filter:drop-shadow(0 0 30px #39cfff77)">🖐️ → 🥽 → 📡 → 💻 → 🤖 → 📝</div><div>Flujo conceptual del reconocimiento</div></div>'}
+</script><script id="esp32-3d-loader" type="module">
+// LSC / VISION V26 · Visor orbital 360º, fondo transparente y encuadre adaptativo.
+// El GLB de Camera shield ESP32-CAM / Wemos D1 Mini es una REFERENCIA, no un prototipo construido.
+try {
+  const THREE=await import('three');
+  const [{GLTFLoader},{OrbitControls}]=await Promise.all([
+    import('three/addons/loaders/GLTFLoader.js'),
+    import('three/addons/controls/OrbitControls.js')
+  ]);
+  const main=document.getElementById('camera3dMain');
+  const mini=document.getElementById('camera3dMini');
+  const reference=(await new GLTFLoader().loadAsync('./assets/esp32_cam_shield.glb')).scene;
+  const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const viewers=[];
+  let isDragging=false;
+  let resumeAutoAt=0;
+  const pauseAuto=(milliseconds=4800)=>{resumeAutoAt=performance.now()+milliseconds};
+
+  function createViewer(mount,compact){
+    const scene=new THREE.Scene();
+    scene.background=null; // alpha: WebGL permanece totalmente transparente
+    const camera=new THREE.PerspectiveCamera(compact?35:34,1,.1,100);
+    camera.position.set(compact?2:1.1,compact?1.4:1.2,compact?9.5:9.6);
+    const renderer=new THREE.WebGLRenderer({alpha:true,antialias:true,powerPreference:'high-performance'});
+    renderer.setPixelRatio(Math.min(devicePixelRatio||1,1.8));
+    renderer.setClearColor(0x000000,0);
+    renderer.outputColorSpace=THREE.SRGBColorSpace;
+    renderer.toneMapping=THREE.ACESFilmicToneMapping;
+    renderer.toneMappingExposure=1.2;
+    renderer.domElement.style.background='transparent';
+    mount.appendChild(renderer.domElement);
+    scene.add(new THREE.HemisphereLight(0xe1f7ff,0x436884,3));
+    const front=new THREE.DirectionalLight(0xffffff,4.5);front.position.set(3.5,5,7);scene.add(front);
+    const side=new THREE.DirectionalLight(0x79d7ff,2.8);side.position.set(-5,2,-4);scene.add(side);
+    const bottom=new THREE.DirectionalLight(0xe4ecff,1.9);bottom.position.set(0,-4,4);scene.add(bottom);
+
+    const raw=reference.clone(true);
+    raw.updateMatrixWorld(true);
+    const original=new THREE.Box3().setFromObject(raw);
+    const ctr=original.getCenter(new THREE.Vector3());
+    const dims=original.getSize(new THREE.Vector3());
+    raw.position.sub(ctr);
+    const normalized=new THREE.Group();normalized.add(raw);
+    const mountGroup=new THREE.Group();mountGroup.add(normalized);
+    // El sensor del GLB apunta hacia +Y. Rotar +90° en X lo orienta hacia el espectador (+Z).
+    mountGroup.rotation.x=Math.PI/2;
+    const modelScale=(compact?2.55:5.1)/Math.max(dims.x,dims.y,dims.z);
+    const display=new THREE.Group();display.add(mountGroup);display.scale.setScalar(modelScale);
+    scene.add(display);
+    display.updateWorldMatrix(true,true);
+
+    // Obtener la posición real de la lente desde su nombre en el GLB.
+    let lens=null;
+    display.traverse(o=>{
+      if(!lens && o.isMesh && /ov9655.*lens|lens.*ov9655/i.test(o.name))lens=o;
+    });
+    const lensWorld=lens?lens.getWorldPosition(new THREE.Vector3()):new THREE.Vector3(-1.05,0,1.0);
+
+    const controls=new OrbitControls(camera,renderer.domElement);
+    controls.enableDamping=true;
+    controls.dampingFactor=.095;
+    controls.enableRotate=true;
+    controls.enablePan=false;
+    controls.enableZoom=false; // zoom personalizado: la cámara conserva el encuadre completo
+    controls.autoRotate=false;
+    controls.autoRotateSpeed=1.05;
+    controls.minPolarAngle=.015;
+    controls.maxPolarAngle=Math.PI-.015;
+    controls.minAzimuthAngle=-Infinity;
+    controls.maxAzimuthAngle=Infinity;
+    controls.rotateSpeed=.85;
+    controls.target.set(0,0,0);
+    controls.update();
+
+    const viewer={mount,scene,camera,renderer,controls,display,compact,lensWorld,
+      preferredMargin:compact?1.20:1.27,visible:false,corners:[],lastTime:0};
+
+    function recalc(){
+      const rect=mount.getBoundingClientRect();
+      if(rect.width<2||rect.height<2)return;
+      renderer.setSize(Math.ceil(rect.width),Math.ceil(rect.height),false);
+      camera.aspect=rect.width/rect.height;
+      camera.updateProjectionMatrix();
+      display.updateWorldMatrix(true,true);
+      // Se mide una vez por cambio de tamaño; 8 esquinas conservadoras para cualquier giro.
+      const b=new THREE.Box3().setFromObject(display);
+      viewer.corners=[];
+      for(const x of [b.min.x,b.max.x])
+        for(const y of [b.min.y,b.max.y])
+          for(const z of [b.min.z,b.max.z]) viewer.corners.push(new THREE.Vector3(x,y,z));
+      ensureFit(viewer);
+    }
+    viewer.recalc=recalc;
+    const observer=new ResizeObserver(recalc);observer.observe(mount);viewer.observer=observer;
+    recalc();
+    const io=new IntersectionObserver(entries=>{viewer.visible=entries.some(e=>e.isIntersecting)},{threshold:.01});
+    io.observe(mount);viewer.io=io;
+    viewers.push(viewer);
+    return viewer;
+  }
+
+  function requiredDistance(v){
+    const {camera,controls,corners}=v;
+    if(!corners.length)return 8.5;
+    const direction=camera.position.clone().sub(controls.target).normalize();
+    camera.updateMatrixWorld();
+    const right=new THREE.Vector3(1,0,0).applyQuaternion(camera.quaternion).normalize();
+    const up=new THREE.Vector3(0,1,0).applyQuaternion(camera.quaternion).normalize();
+    const tanVertical=Math.tan(THREE.MathUtils.degToRad(camera.fov)/2);
+    const tanHorizontal=tanVertical*camera.aspect;
+    // Márgenes del 8 % para evitar cualquier recorte con rotación manual.
+    const margin=.90;
+    let required=1;
+    for(const corner of corners){
+      const p=corner.clone().sub(controls.target);
+      const nearComponent=p.dot(direction);
+      const needX=nearComponent+Math.abs(p.dot(right))/Math.max(.01,tanHorizontal*margin);
+      const needY=nearComponent+Math.abs(p.dot(up))/Math.max(.01,tanVertical*margin);
+      required=Math.max(required,needX,needY);
+    }
+    return required+.25;
+  }
+  function ensureFit(v){
+    const dir=v.camera.position.clone().sub(v.controls.target).normalize();
+    const d=requiredDistance(v)*v.preferredMargin;
+    v.camera.position.copy(v.controls.target).addScaledVector(dir,d);
+    v.camera.updateProjectionMatrix();
+  }
+
+  const mainViewer=createViewer(main,false);
+  const miniViewer=createViewer(mini,true);
+  main.querySelector('.camera-loader')?.remove();
+  mini.querySelector('.mini-module-loading')?.remove();
+  // La rotación automática se detiene inmediatamente cuando el expositor manipula el modelo.
+  mainViewer.controls.addEventListener('start',()=>{
+    isDragging=true;pauseAuto(5500);
+  });
+  mainViewer.controls.addEventListener('end',()=>{
+    isDragging=false;pauseAuto(4200);
+  });
+  mainViewer.controls.addEventListener('change',()=>{
+    if(isDragging)pauseAuto(5500);
+  });
+
+  // Se conservan las vistas libres con mouse: no hay botones sobre el modelo.
+  main.addEventListener('wheel',e=>{
+    e.preventDefault();
+    // Permite acercar y alejar, pero nunca cruza la distancia mínima para ver toda la placa.
+    mainViewer.preferredMargin=THREE.MathUtils.clamp(mainViewer.preferredMargin*Math.exp(e.deltaY*.00105),1.012,3.4);
+    pauseAuto(4500);
+  },{passive:false});
+  main.addEventListener('keydown',e=>{
+    if(e.key==='+'||e.key==='='){e.preventDefault();mainViewer.preferredMargin=Math.max(1.012,mainViewer.preferredMargin*.90);pauseAuto(4500)}
+    if(e.key==='-'){e.preventDefault();mainViewer.preferredMargin=Math.min(3.4,mainViewer.preferredMargin*1.1);pauseAuto(4500)}
+  });
+
+  // OrbitControls: vista superior/inferior y 360° horizontal, con flotación y giro automático en reposo.
+  let last=performance.now();
+  function frame(now){
+    const dt=Math.min(.05,(now-last)/1000);last=now;
+    if(!document.hidden){
+      const elapsed=now*.001;
+      for(const v of viewers){
+        if(!v.visible)continue;
+        if(!v.compact){
+          // Giro orbital suave y continuo en reposo; pausa 4–5 segundos después de interactuar.
+          v.controls.autoRotate=!reduced && !isDragging && now>resumeAutoAt;
+          // Flotación real del módulo (independiente de la cámara), incluso mientras se inspecciona.
+          v.display.position.y=reduced?0:Math.sin(elapsed*1.3)*.17;
+          v.display.rotation.z=reduced?0:Math.sin(elapsed*.65)*.019;
+        }else{
+          // La miniatura conserva la orientación de la arquitectura sin interacción cruzada.
+          v.controls.autoRotate=false;
+          v.display.position.y=reduced?0:Math.sin(elapsed*.72)*.055;
+        }
+        v.controls.update();
+        ensureFit(v);
+        v.renderer.render(v.scene,v.camera);
+      }
+    }
+    requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+}catch(error){
+  console.error('No se pudo iniciar la visualización 3D del ESP32-CAM:',error);
+  const loading=document.querySelector('#camera3dMain .camera-loader');
+  if(loading)loading.textContent='NO SE PUDO CARGAR EL MODELO 3D. REVISA ASSETS Y TU CONEXIÓN.';
+}
+</script>
+<div aria-hidden="true" aria-labelledby="reportModalTitle" aria-modal="true" class="report-modal" hidden="" id="reportModal" role="dialog">
+<div class="report-modal-backdrop" data-close-report="true"></div>
+<section class="report-dialog">
+<header class="report-dialog-header">
+<div class="report-dialog-brand"><span class="report-dialog-monogram">UTP</span><span class="report-dialog-heading"><small>INFORME DE ELECTRÓNICA DIGITAL</small><strong id="reportModalTitle">Gafas inteligentes para la LSC</strong></span></div>
+<div class="report-dialog-actions">
+<span class="report-page-count">34 páginas</span>
+<a class="report-dialog-download" download="Informe_Electronica_Digital_LSC.pdf" href="./assets/Informe_Electronica_Digital_LSC.pdf">Descargar <span aria-hidden="true">↓</span></a>
+<a aria-label="Abrir informe PDF en otra pestaña" class="report-dialog-new" href="./assets/Informe_Electronica_Digital_LSC.pdf" rel="noopener" target="_blank" title="Abrir PDF en otra pestaña">↗</a>
+<button aria-label="Cerrar visor del informe" class="report-dialog-close" id="closeReportButton" type="button">×</button>
+</div>
+</header>
+<div class="report-reader"><iframe data-src="./assets/Informe_Electronica_Digital_LSC.pdf#toolbar=1&amp;navpanes=0&amp;view=FitH" id="reportFrame" loading="lazy" title="Informe académico completo del proyecto, 34 páginas"></iframe></div>
+<footer class="report-dialog-footer"><span>UNIVERSIDAD TECNOLÓGICA DE PEREIRA</span><span>Presiona Esc para cerrar el informe</span></footer>
+</section>
+</div>
+<script id="report-modal-script">
+(() => {
+ const modal=document.getElementById('reportModal');
+ const frame=document.getElementById('reportFrame');
+ const openers=['openReportButton','openReportCover'].map(id=>document.getElementById(id)).filter(Boolean);
+ const closeButton=document.getElementById('closeReportButton');
+ let previousFocus=null;
+ function openReport(){
+   previousFocus=document.activeElement;
+   if(!frame.src){frame.src=frame.dataset.src;}
+   modal.hidden=false;
+   modal.setAttribute('aria-hidden','false');
+   document.body.classList.add('report-open');
+   closeButton.focus({preventScroll:true});
+ }
+ function closeReport(){
+   modal.hidden=true;
+   modal.setAttribute('aria-hidden','true');
+   document.body.classList.remove('report-open');
+   if(previousFocus?.focus)previousFocus.focus({preventScroll:true});
+ }
+ openers.forEach(button=>button.addEventListener('click',openReport));
+ closeButton.addEventListener('click',closeReport);
+ modal.addEventListener('click',event=>{if(event.target?.dataset?.closeReport)closeReport()});
+ document.addEventListener('keydown',event=>{
+   if(modal.hidden)return;
+   if(event.key==='Escape'){event.preventDefault();event.stopImmediatePropagation();closeReport()}
+   if(['ArrowLeft','ArrowRight','ArrowUp','ArrowDown','PageUp','PageDown'].includes(event.key))event.stopPropagation();
+ },true);
+})();
+</script></body></html>
